@@ -100,6 +100,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Load SweetAlert CSS and JS dynamically if not already loaded
+    if (!document.querySelector('link[href*="sweetalert"]')) {
+        const sweetAlertCSS = document.createElement('link');
+        sweetAlertCSS.rel = 'stylesheet';
+        sweetAlertCSS.href = 'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css';
+        document.head.appendChild(sweetAlertCSS);
+        
+        const sweetAlertJS = document.createElement('script');
+        sweetAlertJS.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11';
+        document.body.appendChild(sweetAlertJS);
+    }
+
     // Initialize EmailJS with your public key
     emailjs.init('fxS5fmF2ZlVrvNyJ5'); // Replace with your actual EmailJS public key
     
@@ -115,26 +127,64 @@ document.addEventListener('DOMContentLoaded', function() {
                 message: contactForm.elements['message'].value
             };
             
+            // Validate form
+            if (!formData.name || !formData.email || !formData.message) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill in all fields!',
+                    showClass: {
+                        popup: 'animate__animated animate__shakeX'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOut'
+                    }
+                });
+                return false;
+            }
+            
             // Show loading state
             const submitButton = contactForm.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.textContent;
-            submitButton.textContent = 'Sending...';
+            submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
             submitButton.disabled = true;
             
             // Send email using EmailJS
             emailjs.send('service_98mt1tk', 'template_cq64weq', formData)
                 .then(function(response) {
-                    // Show success message
-                    alert('Message sent successfully!');
+                    // Show success message with animation
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Message sent successfully!',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        showClass: {
+                            popup: 'animate__animated animate__zoomIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__zoomOut'
+                        }
+                    });
                     contactForm.reset();
                 }, function(error) {
-                    // Show error message
-                    alert('Failed to send message. Please try again later.');
+                    // Show error message with animation
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Failed to send',
+                        text: 'Please try again later.',
+                        showClass: {
+                            popup: 'animate__animated animate__wobble'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOut'
+                        }
+                    });
                     console.error('EmailJS error:', error);
                 })
                 .finally(function() {
                     // Reset button state
-                    submitButton.textContent = originalButtonText;
+                    submitButton.innerHTML = originalButtonText;
                     submitButton.disabled = false;
                 });
         }
@@ -143,8 +193,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return false;
     };
 });
-
-
 
 
 
