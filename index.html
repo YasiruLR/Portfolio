@@ -347,26 +347,26 @@
 
             <!-- Profile Photo on the right side -->
             <div class="w-full lg:w-1/2 order-1 lg:order-2 relative group">
-                <div class="relative group">
-                    <img 
-                        src="assects/about2.png"
-                        alt="Yasiru Lakshan" 
-                        class="w-2/3 h-auto object-cover mx-auto rounded-xl shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl"
-                        loading="lazy"
-                    >
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div class="bg-black/70 text-white p-6 rounded-lg max-w-xs text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            <p class="text-sm italic">"Hi, I'm Yasiru Lakshan. Let's build the future, one project at a time."</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Floating badges -->
-                <div class="absolute -bottom-6 -right-6 bg-white dark:bg-gray-700 px-4 py-2 rounded-full shadow-lg flex items-center gap-2 animate-border-glow">
-                    <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                    <span class="font-medium text-sm">Available for work</span>
-                </div>
+    <!-- Floating badges - now at the top -->
+    <div class="absolute -top-6 -right-6 bg-white dark:bg-gray-700 px-4 py-2 rounded-full shadow-lg flex items-center gap-2 animate-border-glow z-10">
+        <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+        <span class="font-medium text-sm">Available for work</span>
+    </div>
+    
+    <div class="relative group">
+        <img 
+            src="assects/about2.png"
+            alt="Yasiru Lakshan" 
+            class="w-2/3 h-auto object-cover mx-auto rounded-xl shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl"
+            loading="lazy"
+        >
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="bg-black/70 text-white p-6 rounded-lg max-w-xs text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <p class="text-sm italic">"Hi, I'm Yasiru Lakshan. Let's build the future, one project at a time."</p>
             </div>
+        </div>
+    </div>
+</div>
         </div>
     </div>
 </section>
