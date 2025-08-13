@@ -315,3 +315,76 @@ a {
   }
 }
 
+/* ===== Project Modal Styles ===== */
+.project-modal {
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.project-modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.project-modal:not(.hidden) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-modal .bg-white,
+.project-modal .dark\:bg-gray-800 {
+  box-shadow: var(--shadow-xl);
+  animation: modalFadeIn 0.3s ease-out;
+  border-radius: 1rem;
+}
+
+@keyframes modalFadeIn {
+  from { 
+    transform: scale(0.95) translateY(-20px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: scale(1) translateY(0); 
+    opacity: 1; 
+  }
+}
+
+.close-modal {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(156, 163, 175, 0.1);
+}
+
+.close-modal:hover {
+  color: var(--color-primary);
+  background-color: rgba(156, 163, 175, 0.2);
+  transform: scale(1.1);
+}
+
+.project-modal-btn {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.project-modal-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Responsive modal */
+@media (max-width: 640px) {
+  .project-modal .max-w-2xl {
+    max-width: 95vw;
+    margin: 1rem;
+  }
+  
+  .project-modal .p-8 {
+    padding: 1.5rem;
+  }
+}
+

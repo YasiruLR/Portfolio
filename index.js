@@ -96,6 +96,33 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('loading-screen').classList.add('hidden');
         }, 500);
     }, 1000);
+    
+    // Project Modals
+    const modalBtns = document.querySelectorAll('.project-modal-btn');
+    const modals = document.querySelectorAll('.project-modal');
+    const closeBtns = document.querySelectorAll('.close-modal');
+
+    modalBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const modalId = btn.getAttribute('data-modal');
+            document.getElementById(modalId).classList.remove('hidden');
+        });
+    });
+
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            btn.closest('.project-modal').classList.add('hidden');
+        });
+    });
+
+    // Close modal when clicking outside modal content
+    modals.forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    });
 });
 
 
@@ -193,6 +220,29 @@ document.addEventListener('DOMContentLoaded', function() {
         return false;
     };
 });
+
+// Function to toggle project details view
+function toggleAllProjects() {
+    const btn = document.getElementById('toggleProjectsBtn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    // This is a simple example - you can enhance this to show/hide additional details
+    // For now, it just provides a visual feedback
+    if (btn.textContent.includes('Show')) {
+        btn.innerHTML = '<i class="fas fa-eye-slash mr-2"></i>Hide Project Details';
+        // You could show additional project information here
+        projectCards.forEach(card => {
+            card.style.transform = 'scale(1.02)';
+            card.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+        });
+    } else {
+        btn.innerHTML = '<i class="fas fa-eye mr-2"></i>Show Project Details';
+        projectCards.forEach(card => {
+            card.style.transform = 'scale(1)';
+            card.style.boxShadow = '';
+        });
+    }
+}
 
 
 

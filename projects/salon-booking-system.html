@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Booking System - Yasiru Lakshan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 shadow-sm transition-colors duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-gray-900 dark:text-white font-bold text-xl">
+                    <a href="../index.html" class="gradient-text bg-gradient-to-r from-primary-600 to-secondary-600">Yasiru Lakshan</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="../index.html" class="text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+                    <span class="gradient-text bg-gradient-to-r from-primary-600 to-secondary-600">Salon Booking System</span>
+                </h1>
+                <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Full-stack web application with separate customer and admin portals. Built using Next.js, MySQL, Sequelize, and Tailwind CSS.
+                </p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <span class="px-4 py-2 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 rounded-full text-sm font-medium">Next.js</span>
+                    <span class="px-4 py-2 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 rounded-full text-sm font-medium">React</span>
+                    <span class="px-4 py-2 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full text-sm font-medium">TypeScript</span>
+                    <span class="px-4 py-2 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100 rounded-full text-sm font-medium">MySQL</span>
+                    <span class="px-4 py-2 bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-100 rounded-full text-sm font-medium">Sequelize</span>
+                    <span class="px-4 py-2 bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-100 rounded-full text-sm font-medium">Tailwind CSS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Project Overview -->
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Project Overview</h2>
+                        <div class="prose prose-lg dark:prose-invert">
+                            <p class="text-gray-600 dark:text-gray-300 mb-6">
+                                The Salon Booking System is a comprehensive full-stack web application designed to streamline salon appointment management. The system features dual portals - one for customers and one for administrators, each tailored to their specific needs.
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6">
+                                Built with modern web technologies, this application leverages Next.js for both frontend and backend functionality, providing a seamless full-stack solution with server-side rendering capabilities.
+                            </p>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 mt-8">Key Features</h3>
+                        <div class="grid grid-cols-1 gap-6">
+                            <!-- Customer Features -->
+                            <div class="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-6 rounded-xl border border-blue-200 dark:border-blue-700">
+                                <h4 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-3 flex items-center">
+                                    <i class="fas fa-users mr-3 text-blue-600"></i>Customer Portal
+                                </h4>
+                                <ul class="text-gray-700 dark:text-gray-300 space-y-2">
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1 text-sm"></i>Browse available salon services</li>
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1 text-sm"></i>Book appointments by selecting date, time, and services</li>
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1 text-sm"></i>View and manage booking history</li>
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1 text-sm"></i>Real-time booking status updates</li>
+                                </ul>
+                            </div>
+
+                            <!-- Admin Features -->
+                            <div class="bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-6 rounded-xl border border-purple-200 dark:border-purple-700">
+                                <h4 class="text-lg font-semibold text-purple-900 dark:text-purple-100 mb-3 flex items-center">
+                                    <i class="fas fa-user-shield mr-3 text-purple-600"></i>Admin Portal
+                                </h4>
+                                <ul class="text-gray-700 dark:text-gray-300 space-y-2">
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1 text-sm"></i>View all bookings with status (Pending, Approved, Rejected)</li>
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1 text-sm"></i>Approve or reject customer bookings</li>
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1 text-sm"></i>Track comprehensive booking statistics</li>
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1 text-sm"></i>Dashboard with analytics and insights</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Details -->
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Technical Implementation</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                                    <i class="fas fa-code mr-3 text-primary-600"></i>Frontend Architecture
+                                </h4>
+                                <ul class="text-gray-600 dark:text-gray-300 space-y-2">
+                                    <li><strong>Next.js:</strong> React-based framework for server-side rendering</li>
+                                    <li><strong>TypeScript:</strong> Type-safe development</li>
+                                    <li><strong>Tailwind CSS:</strong> Utility-first CSS framework</li>
+                                    <li><strong>Responsive Design:</strong> Mobile-first approach</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                                    <i class="fas fa-server mr-3 text-green-600"></i>Backend & Database
+                                </h4>
+                                <ul class="text-gray-600 dark:text-gray-300 space-y-2">
+                                    <li><strong>Next.js API Routes:</strong> Full-stack capabilities</li>
+                                    <li><strong>Sequelize ORM:</strong> Database abstraction layer</li>
+                                    <li><strong>MySQL:</strong> Relational database management</li>
+                                    <li><strong>RESTful APIs:</strong> Clean data communication</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                                    <i class="fas fa-shield-alt mr-3 text-red-600"></i>Security & Performance
+                                </h4>
+                                <ul class="text-gray-600 dark:text-gray-300 space-y-2">
+                                    <li><strong>Data Validation:</strong> Client and server-side validation</li>
+                                    <li><strong>SQL Injection Protection:</strong> Parameterized queries</li>
+                                    <li><strong>Optimized Queries:</strong> Efficient database operations</li>
+                                    <li><strong>Error Handling:</strong> Comprehensive error management</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                            <a href="https://github.com/YasiruLR/MySalon" target="_blank" class="flex-1 bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-primary-700 hover:to-secondary-700 transition-all duration-300 text-center">
+                                <i class="fab fa-github mr-2"></i>View Source Code
+                            </a>
+                            <a href="../index.html#projects" class="flex-1 border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 text-center dark:text-primary-400 dark:border-primary-400 dark:hover:bg-primary-400 dark:hover:text-white">
+                                <i class="fas fa-arrow-left mr-2"></i>Back to Projects
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery/Screenshots -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <!-- Main Project Image -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Project Showcase</h2>
+                    <div class="bg-white dark:bg-gray-700 rounded-2xl shadow-2xl overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2126&q=80" 
+                            alt="Modern salon interior with booking system interface" 
+                            class="w-full h-64 md:h-80 object-cover"
+                            loading="lazy"
+                        >
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Modern Salon Management</h3>
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                The Salon Booking System transforms traditional salon operations with a sleek, modern interface that allows customers to easily browse services, select preferred time slots, and manage their appointments. The system integrates seamlessly with salon operations, providing real-time availability and automated booking confirmations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Highlights -->
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Key Features</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Customer Interface -->
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                            alt="Customer using mobile app for salon booking" 
+                            class="w-full h-48 object-cover"
+                            loading="lazy"
+                        >
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Customer Portal</h3>
+                            <p class="text-gray-600 dark:text-gray-300">User-friendly interface for browsing services, booking appointments, and managing personal schedules</p>
+                        </div>
+                    </div>
+
+                    <!-- Admin Dashboard -->
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                            alt="Analytics dashboard showing booking statistics" 
+                            class="w-full h-48 object-cover"
+                            loading="lazy"
+                        >
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Admin Dashboard</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Comprehensive management panel with booking analytics, approval systems, and business insights</p>
+                        </div>
+                    </div>
+
+                    <!-- Real-time Updates -->
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                            alt="Real-time notification system" 
+                            class="w-full h-48 object-cover"
+                            loading="lazy"
+                        >
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Real-time System</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Instant notifications, live availability updates, and seamless communication between customers and salon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../index.js"></script>
+</body>
+</html>
