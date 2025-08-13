@@ -221,5 +221,28 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 });
 
+// Function to toggle project details view
+function toggleAllProjects() {
+    const btn = document.getElementById('toggleProjectsBtn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    // This is a simple example - you can enhance this to show/hide additional details
+    // For now, it just provides a visual feedback
+    if (btn.textContent.includes('Show')) {
+        btn.innerHTML = '<i class="fas fa-eye-slash mr-2"></i>Hide Project Details';
+        // You could show additional project information here
+        projectCards.forEach(card => {
+            card.style.transform = 'scale(1.02)';
+            card.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+        });
+    } else {
+        btn.innerHTML = '<i class="fas fa-eye mr-2"></i>Show Project Details';
+        projectCards.forEach(card => {
+            card.style.transform = 'scale(1)';
+            card.style.boxShadow = '';
+        });
+    }
+}
+
 
 

@@ -190,8 +190,8 @@
                 <a href="#contact" class="btn-hover-effect inline-block border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-medium py-3 px-8 rounded-full transition-all duration-300 dark:text-primary-400 dark:border-primary-400 dark:hover:bg-primary-400 dark:hover:text-white">
                     Contact Me
                 </a>
-                <a href="./assects/Yasiru Lakshan Rathnayaka CV.pdf" download="Yasiru-Lakshan-CV.pdf" class="btn-hover-effect inline-block border-2 border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white font-medium py-3 px-8 rounded-full transition-all duration-300 dark:text-gray-300 dark:border-gray-300 dark:hover:bg-gray-300 dark:hover:text-gray-800">
-                    Download CV
+                <a href="./cv.html" class="btn-hover-effect inline-block border-2 border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white font-medium py-3 px-8 rounded-full transition-all duration-300 dark:text-gray-300 dark:border-gray-300 dark:hover:bg-gray-300 dark:hover:text-gray-800">
+                    <i class="fas fa-file-alt mr-2"></i>View CV
                 </a>
             </div>
             
@@ -386,47 +386,53 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1: Salon Booking System -->
                 <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <div class="h-48 bg-gradient-to-br from-primary-400 to-secondary-500 flex items-center justify-center relative overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center relative overflow-hidden">
                         <i class="fas fa-calendar-check text-white text-4xl relative z-10"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Salon Booking System</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Full-stack web app with customer/admin portals. Next.js, MySQL, Sequelize, Tailwind CSS.</p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Full-stack web application with separate customer and admin portals. Customers can browse services, book appointments, and manage bookings.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 rounded-full text-sm">Next.js</span>
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100 rounded-full text-sm">MySQL</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 rounded-full text-sm">TypeScript</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 rounded-full text-sm">MySQL</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full text-sm">TypeScript</span>
+                            <span class="px-3 py-1 bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-100 rounded-full text-sm">Tailwind CSS</span>
                         </div>
                         <div class="flex space-x-4">
-                            <button class="project-modal-btn text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition-colors duration-300" data-modal="modal-salon">
-                                <i class="fas fa-info-circle mr-2"></i>View Details
-                            </button>
-                            <a href="https://github.com/YasiruLR/MySalon" target="_blank" class="text-secondary-600 hover:text-secondary-800 dark:text-secondary-400 dark:hover:text-secondary-300 font-semibold transition-colors duration-300">
+                            <a href="https://github.com/YasiruLR/MySalon" target="_blank" class="text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition-colors duration-300">
                                 <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                            <a href="./projects/salon-booking-system.html" class="text-secondary-600 hover:text-secondary-800 dark:text-secondary-400 dark:hover:text-secondary-300 font-semibold transition-colors duration-300">
+                                <i class="fas fa-info-circle mr-2"></i>Details
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2: Chatbot Application -->
-                <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center relative overflow-hidden">
+                <!-- Project 2: SmartBiz AI Business Suite -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl relative">
+                    <!-- Ongoing Project Badge -->
+                    <div class="absolute top-3 right-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold z-10">
+                        🚀 ONGOING
+                    </div>
+                    <div class="h-48 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center relative overflow-hidden">
                         <i class="fas fa-robot text-white text-4xl relative z-10"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Chatbot Application</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">React-based chatbot that can connect to any database for dynamic interactions.</p>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">SmartBiz: AI-Powered Business Suite</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Comprehensive ERP-lite system for SMEs with AI-powered insights using OpenAI integration, featuring React web app and React Native mobile app.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 rounded-full text-sm">React</span>
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100 rounded-full text-sm">JavaScript</span>
-                            <span class="px-3 py-1 bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-100 rounded-full text-sm">CSS</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full text-sm">React Native</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 rounded-full text-sm">Spring Boot</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100 rounded-full text-sm">OpenAI API</span>
                         </div>
                         <div class="flex space-x-4">
-                            <button class="project-modal-btn text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition-colors duration-300" data-modal="modal-chatbot">
-                                <i class="fas fa-info-circle mr-2"></i>View Details
-                            </button>
-                            <a href="https://github.com/YasiruLR/Chatbot_Js" target="_blank" class="text-secondary-600 hover:text-secondary-800 dark:text-secondary-400 dark:hover:text-secondary-300 font-semibold transition-colors duration-300">
+                            <a href="https://github.com/YasiruLR/SmartBiz_Frontend" target="_blank" class="text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition-colors duration-300">
                                 <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                            <a href="./projects/smartbiz-ai-business-suite.html" class="text-secondary-600 hover:text-secondary-800 dark:text-secondary-400 dark:hover:text-secondary-300 font-semibold transition-colors duration-300">
+                                <i class="fas fa-info-circle mr-2"></i>Details
                             </a>
                         </div>
                     </div>
@@ -434,163 +440,90 @@
 
                 <!-- Project 3: Online Quiz Application -->
                 <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center relative overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center relative overflow-hidden">
                         <i class="fas fa-question-circle text-white text-4xl relative z-10"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Online Quiz Application</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Responsive quiz app with timer, real-time scoring, and user validation.</p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">A responsive web-based quiz application with 20-second timer per question, real-time scoring, and user validation.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-100 rounded-full text-sm">HTML5</span>
                             <span class="px-3 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100 rounded-full text-sm">JavaScript ES6+</span>
                             <span class="px-3 py-1 bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-100 rounded-full text-sm">Tailwind CSS</span>
                         </div>
                         <div class="flex space-x-4">
-                            <button class="project-modal-btn text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition-colors duration-300" data-modal="modal-quiz">
-                                <i class="fas fa-info-circle mr-2"></i>View Details
-                            </button>
-                            <a href="https://github.com/YasiruLR/Quiz-app" target="_blank" class="text-secondary-600 hover:text-secondary-800 dark:text-secondary-400 dark:hover:text-secondary-300 font-semibold transition-colors duration-300">
+                            <a href="https://github.com/YasiruLR/Quiz-app" target="_blank" class="text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition-colors duration-300">
                                 <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                            <a href="./projects/online-quiz-application.html" class="text-secondary-600 hover:text-secondary-800 dark:text-secondary-400 dark:hover:text-secondary-300 font-semibold transition-colors duration-300">
+                                <i class="fas fa-info-circle mr-2"></i>Details
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 4: NIC Detail Application -->
+                <!-- Project 4: Chatbot Application -->
                 <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <div class="h-48 bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center relative overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-comments text-white text-4xl relative z-10"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Chatbot Application</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">An intelligent chatbot application built using React and JavaScript that can interact with any database to provide dynamic responses.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 rounded-full text-sm">React</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full text-sm">CSS3</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/YasiruLR/Chatbot_Js" target="_blank" class="text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition-colors duration-300">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                            <a href="./projects/chatbot-application.html" class="text-secondary-600 hover:text-secondary-800 dark:text-secondary-400 dark:hover:text-secondary-300 font-semibold transition-colors duration-300">
+                                <i class="fas fa-info-circle mr-2"></i>Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: NIC Detail Application -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    <div class="h-48 bg-gradient-to-br from-indigo-400 to-cyan-500 flex items-center justify-center relative overflow-hidden">
                         <i class="fas fa-id-card text-white text-4xl relative z-10"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">NIC Detail Application</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Extracts details from Sri Lankan NIC numbers with responsive UI and validation.</p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">A React application that extracts and displays personal details from Sri Lankan National Identity Card numbers using the lanka-nic library.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 rounded-full text-sm">React 19</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 rounded-full text-sm">Vite</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full text-sm">Vite</span>
                             <span class="px-3 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100 rounded-full text-sm">JavaScript ES6+</span>
                         </div>
                         <div class="flex space-x-4">
-                            <button class="project-modal-btn text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition-colors duration-300" data-modal="modal-nic">
-                                <i class="fas fa-info-circle mr-2"></i>View Details
-                            </button>
-                            <a href="https://github.com/YasiruLR/NIC_Detail-Application" target="_blank" class="text-secondary-600 hover:text-secondary-800 dark:text-secondary-400 dark:hover:text-secondary-300 font-semibold transition-colors duration-300">
+                            <a href="https://github.com/YasiruLR/NIC_Detail-_Application" target="_blank" class="text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition-colors duration-300">
                                 <i class="fab fa-github mr-2"></i>GitHub
                             </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: SmartBiz -->
-                <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <div class="h-48 bg-gradient-to-br from-red-400 to-pink-500 flex items-center justify-center relative overflow-hidden">
-                        <i class="fas fa-brain text-white text-4xl relative z-10"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">SmartBiz: AI Business Suite</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">ERP-lite system for SMEs with AI insights, React web/mobile apps, Spring Boot backend.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 rounded-full text-sm">React</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 rounded-full text-sm">Spring Boot</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full text-sm">OpenAI API</span>
-                        </div>
-                        <div class="flex space-x-4">
-                            <button class="project-modal-btn text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition-colors duration-300" data-modal="modal-smartbiz">
-                                <i class="fas fa-info-circle mr-2"></i>View Details
-                            </button>
-                            <a href="https://github.com/YasiruLR/SmartBiz_Frontend" target="_blank" class="text-secondary-600 hover:text-secondary-800 dark:text-secondary-400 dark:hover:text-secondary-300 font-semibold transition-colors duration-300">
-                                <i class="fab fa-github mr-2"></i>GitHub
+                            <a href="./projects/nic-detail-application.html" class="text-secondary-600 hover:text-secondary-800 dark:text-secondary-400 dark:hover:text-secondary-300 font-semibold transition-colors duration-300">
+                                <i class="fas fa-info-circle mr-2"></i>Details
                             </a>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project Modals -->
-            <div id="modal-salon" class="project-modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 max-w-2xl w-full mx-4 relative max-h-[90vh] overflow-y-auto">
-                    <button class="close-modal absolute top-4 right-4 text-gray-500 hover:text-primary-500 text-2xl font-bold">&times;</button>
-                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">Salon Booking System</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Full-stack web application with separate customer and admin portals. Built using Next.js, MySQL, Sequelize, and Tailwind CSS. Customers can browse services, book appointments, and manage bookings; admins can approve/reject bookings and track statistics.</p>
-                    <div class="mb-4">
-                        <strong class="text-gray-800 dark:text-white">Technologies:</strong>
-                        <p class="text-gray-600 dark:text-gray-300">Next.js (React-based framework), Next.js API Routes with Sequelize ORM, MySQL, Tailwind CSS, TypeScript</p>
-                    </div>
-                    <a href="https://github.com/YasiruLR/MySalon" target="_blank" class="inline-block bg-primary-600 text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors">
-                        <i class="fab fa-github mr-2"></i>View on GitHub
-                    </a>
-                </div>
-            </div>
-
-            <div id="modal-chatbot" class="project-modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 max-w-2xl w-full mx-4 relative max-h-[90vh] overflow-y-auto">
-                    <button class="close-modal absolute top-4 right-4 text-gray-500 hover:text-primary-500 text-2xl font-bold">&times;</button>
-                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">Chatbot Application</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">This is built using React and JavaScript and you can use this chatbot by entering any database. Features flexible database integration and responsive user interface.</p>
-                    <div class="mb-4">
-                        <strong class="text-gray-800 dark:text-white">Technologies:</strong>
-                        <p class="text-gray-600 dark:text-gray-300">React, JavaScript, CSS</p>
-                    </div>
-                    <a href="https://github.com/YasiruLR/Chatbot_Js" target="_blank" class="inline-block bg-primary-600 text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors">
-                        <i class="fab fa-github mr-2"></i>View on GitHub
-                    </a>
-                </div>
-            </div>
-
-            <div id="modal-quiz" class="project-modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 max-w-2xl w-full mx-4 relative max-h-[90vh] overflow-y-auto">
-                    <button class="close-modal absolute top-4 right-4 text-gray-500 hover:text-primary-500 text-2xl font-bold">&times;</button>
-                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">Online Quiz Application</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">A responsive web-based quiz application with a 20-second timer per question, real-time scoring, and user validation using JavaScript and Tailwind CSS. Implemented ES6 modules for clean code organization and dynamic content rendering with automatic question progression.</p>
-                    <div class="mb-4">
-                        <strong class="text-gray-800 dark:text-white">Technologies:</strong>
-                        <p class="text-gray-600 dark:text-gray-300">HTML5, JavaScript ES6+, Tailwind CSS</p>
-                    </div>
-                    <a href="https://github.com/YasiruLR/Quiz-app" target="_blank" class="inline-block bg-primary-600 text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors">
-                        <i class="fab fa-github mr-2"></i>View on GitHub
-                    </a>
-                </div>
-            </div>
-
-            <div id="modal-nic" class="project-modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 max-w-2xl w-full mx-4 relative max-h-[90vh] overflow-y-auto">
-                    <button class="close-modal absolute top-4 right-4 text-gray-500 hover:text-primary-500 text-2xl font-bold">&times;</button>
-                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">NIC Detail Application</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Built a React application that extracts and displays personal details from Sri Lankan National Identity Card numbers using the lanka-nic library. Features responsive UI with custom reusable components, form validation, and real-time data parsing for birth date and gender information.</p>
-                    <div class="mb-4">
-                        <strong class="text-gray-800 dark:text-white">Technologies:</strong>
-                        <p class="text-gray-600 dark:text-gray-300">React 19, Vite, JavaScript ES6+, CSS3</p>
-                    </div>
-                    <a href="https://github.com/YasiruLR/NIC_Detail-Application" target="_blank" class="inline-block bg-primary-600 text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors">
-                        <i class="fab fa-github mr-2"></i>View on GitHub
-                    </a>
-                </div>
-            </div>
-
-            <div id="modal-smartbiz" class="project-modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 max-w-2xl w-full mx-4 relative max-h-[90vh] overflow-y-auto">
-                    <button class="close-modal absolute top-4 right-4 text-gray-500 hover:text-primary-500 text-2xl font-bold">&times;</button>
-                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">SmartBiz: AI-Powered Business Management Suite</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Building a comprehensive ERP-lite system for SMEs with AI-powered insights using OpenAI integration, featuring React web app, React Native mobile app, and microservices-based Spring Boot backend. Implements business management modules including inventory, sales, customer management, and AI-driven natural language reporting with AWS deployment.</p>
-                    <div class="mb-4">
-                        <strong class="text-gray-800 dark:text-white">Technologies:</strong>
-                        <p class="text-gray-600 dark:text-gray-300">React, React Native, Spring Boot Microservices, MySQL, OpenAI API, JWT, Material-UI, AWS EC2</p>
-                    </div>
-                    <div class="space-x-4">
-                        <a href="https://github.com/YasiruLR/SmartBiz_Frontend" target="_blank" class="inline-block bg-primary-600 text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors mb-2">
-                            <i class="fab fa-github mr-2"></i>Frontend Repository
-                        </a>
-                        <a href="https://github.com/YasiruLR/SmartBiz_Backend" target="_blank" class="inline-block bg-secondary-600 text-white px-4 py-2 rounded hover:bg-secondary-700 transition-colors mb-2">
-                            <i class="fab fa-github mr-2"></i>Backend Repository
-                        </a>
                     </div>
                 </div>
             </div>
             
             <!-- View more button -->
             <div class="text-center mt-12">
-                <a href="#" class="inline-block px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 rounded-full font-medium hover:bg-primary-600 hover:text-white dark:hover:bg-primary-400 dark:hover:text-white transition-all duration-300">
-                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+                <div class="mb-4 text-gray-600 dark:text-gray-400">
+                    <p class="text-lg">Explore more projects and their detailed implementations</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="./projects/" class="inline-block px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full font-medium hover:from-primary-700 hover:to-secondary-700 transition-all duration-300">
+                        <i class="fas fa-folder-open mr-2"></i>View All Projects
+                    </a>
+                    <a href="https://github.com/YasiruLR" target="_blank" class="inline-block px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 rounded-full font-medium hover:bg-primary-600 hover:text-white dark:hover:bg-primary-400 dark:hover:text-white transition-all duration-300">
+                        <i class="fab fa-github mr-2"></i>GitHub Profile
+                    </a>
+                </div>
             </div>
         </div>
     </section>
