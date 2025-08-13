@@ -96,6 +96,33 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('loading-screen').classList.add('hidden');
         }, 500);
     }, 1000);
+    
+    // Project Modals
+    const modalBtns = document.querySelectorAll('.project-modal-btn');
+    const modals = document.querySelectorAll('.project-modal');
+    const closeBtns = document.querySelectorAll('.close-modal');
+
+    modalBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const modalId = btn.getAttribute('data-modal');
+            document.getElementById(modalId).classList.remove('hidden');
+        });
+    });
+
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            btn.closest('.project-modal').classList.add('hidden');
+        });
+    });
+
+    // Close modal when clicking outside modal content
+    modals.forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    });
 });
 
 
