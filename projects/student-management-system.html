@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System - Yasiru Lakshan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 shadow-sm transition-colors duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-gray-900 dark:text-white font-bold text-xl">
+                    <a href="../index.html" class="gradient-text bg-gradient-to-r from-primary-600 to-secondary-600">Yasiru Lakshan</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <!-- Dark mode toggle -->
+                    <label class="dark-mode-toggle mr-4">
+                        <input type="checkbox" id="darkModeToggle" class="hidden">
+                        <span class="dark-mode-slider"></span>
+                    </label>
+                    <a href="../index.html" class="text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">Portfolio</a>
+                    <a href="../projects/index.html" class="text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">All Projects</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Project Info -->
+                    <div class="animate-fadeIn">
+                        <div class="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium mb-6">
+                            <i class="fas fa-graduation-cap mr-2"></i>
+                            Management System
+                        </div>
+                        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+                            Student <span class="gradient-text bg-gradient-to-r from-blue-600 to-indigo-600">Management System</span>
+                        </h1>
+                        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                            A comprehensive React.js application for managing students with role-based access control, advanced search capabilities, reporting features, and complete CRUD operations for educational institutions.
+                        </p>
+                        
+                        <!-- Key Features -->
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                <span class="text-gray-700 dark:text-gray-300">Role-Based Access</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
+                                <span class="text-gray-700 dark:text-gray-300">Advanced Search</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                <span class="text-gray-700 dark:text-gray-300">Student History Tracking</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
+                                <span class="text-gray-700 dark:text-gray-300">Reports & Analytics</span>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://github.com/YasiruLR/Student-Management" target="_blank" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <i class="fab fa-github mr-3 text-lg"></i>
+                                View Source Code
+                                <i class="fas fa-external-link-alt ml-3"></i>
+                            </a>
+                            <a href="#features" class="inline-flex items-center px-8 py-4 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold rounded-full transition-all duration-300 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-400 dark:hover:text-white">
+                                <i class="fas fa-info-circle mr-3"></i>
+                                View Features
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Image -->
+                    <div class="animate-fadeIn delay-200">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl transform rotate-6"></div>
+                            <div class="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Student management dashboard" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-user-graduate text-blue-600 text-lg"></i>
+                                            </div>
+                                            <div>
+                                                <div class="text-sm font-semibold text-gray-900 dark:text-white">John Doe</div>
+                                                <div class="text-xs text-gray-500 dark:text-gray-400">Computer Science</div>
+                                            </div>
+                                        </div>
+                                        <div class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 rounded-full text-xs font-medium">
+                                            Active
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-4 text-center">
+                                        <div>
+                                            <div class="text-lg font-bold text-blue-600">A</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">Grade</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-lg font-bold text-indigo-600">250</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">Days</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-lg font-bold text-purple-600">5</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">Activities</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                    <span class="gradient-text bg-gradient-to-r from-blue-600 to-indigo-600">Technology Stack</span>
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- React.js -->
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fab fa-react text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">React.js 18+</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Modern React with hooks and functional components</p>
+                    </div>
+
+                    <!-- Node.js & Express -->
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fab fa-node-js text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Node.js & Express</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Backend API with RESTful endpoints</p>
+                    </div>
+
+                    <!-- MySQL -->
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-database text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">MySQL Database</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Relational database with complete schema</p>
+                    </div>
+
+                    <!-- React Router -->
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-route text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">React Router DOM</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Client-side routing and navigation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section id="features" class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                    Core <span class="gradient-text bg-gradient-to-r from-blue-600 to-indigo-600">Features</span>
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Student Management -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-user-graduate text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Student Management</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Complete CRUD operations for student records including add, edit, view, and delete functionality with form validation.</p>
+                    </div>
+
+                    <!-- Advanced Search -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-search text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Advanced Search</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Search students by name, email, course, or status with real-time filtering and sorting capabilities.</p>
+                    </div>
+
+                    <!-- Student History -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-history text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Student History</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Track all activities and changes for each student with detailed timeline and audit trail.</p>
+                    </div>
+
+                    <!-- Role-Based Access -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-user-shield text-indigo-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Role-Based Access</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Different permissions for Admin and Employee users with secure authentication and authorization.</p>
+                    </div>
+
+                    <!-- Reports & Analytics -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-bar text-orange-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Reports & Analytics</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Overview statistics, grade distribution, course enrollment analytics with CSV export functionality.</p>
+                    </div>
+
+                    <!-- Print Capabilities -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-pink-100 dark:bg-pink-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-print text-pink-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Print Capabilities</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Print individual student information, history reports, and comprehensive listings with professional layouts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Roles Section -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                    User <span class="gradient-text bg-gradient-to-r from-blue-600 to-indigo-600">Roles</span>
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Admin Role -->
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user-cog text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Admin Users</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Full system access</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Full access to all features</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Can delete student records</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Complete student management</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Access to all reports</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Employee Role -->
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user-tie text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Employee Users</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Limited access</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">View and edit student information</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Can add new students</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-times text-red-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Cannot delete student records</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Access to reports and history</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Schema Section -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                    Database <span class="gradient-text bg-gradient-to-r from-blue-600 to-indigo-600">Schema</span>
+                </h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Users Table -->
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-users text-blue-600 text-sm"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Users Table</h3>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">id</span>
+                                <span class="text-gray-500 dark:text-gray-500">Primary Key</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">username</span>
+                                <span class="text-gray-500 dark:text-gray-500">VARCHAR</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">password</span>
+                                <span class="text-gray-500 dark:text-gray-500">VARCHAR</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">role</span>
+                                <span class="text-gray-500 dark:text-gray-500">ENUM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">email</span>
+                                <span class="text-gray-500 dark:text-gray-500">VARCHAR</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Students Table -->
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-user-graduate text-green-600 text-sm"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Students Table</h3>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">id</span>
+                                <span class="text-gray-500 dark:text-gray-500">Primary Key</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">first_name</span>
+                                <span class="text-gray-500 dark:text-gray-500">VARCHAR</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">last_name</span>
+                                <span class="text-gray-500 dark:text-gray-500">VARCHAR</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">course</span>
+                                <span class="text-gray-500 dark:text-gray-500">VARCHAR</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">grade</span>
+                                <span class="text-gray-500 dark:text-gray-500">VARCHAR</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Student History Table -->
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-history text-purple-600 text-sm"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">History Table</h3>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">id</span>
+                                <span class="text-gray-500 dark:text-gray-500">Primary Key</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">student_id</span>
+                                <span class="text-gray-500 dark:text-gray-500">Foreign Key</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">action</span>
+                                <span class="text-gray-500 dark:text-gray-500">VARCHAR</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">performed_by</span>
+                                <span class="text-gray-500 dark:text-gray-500">Foreign Key</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">action_date</span>
+                                <span class="text-gray-500 dark:text-gray-500">DATETIME</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Impact -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-indigo-600">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Project Impact</h2>
+                <p class="text-xl text-blue-100 mb-12">
+                    A complete management solution for educational institutions
+                </p>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6">
+                        <div class="text-3xl font-bold text-white mb-2">3</div>
+                        <div class="text-blue-100">Database Tables</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6">
+                        <div class="text-3xl font-bold text-white mb-2">2</div>
+                        <div class="text-blue-100">User Roles</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6">
+                        <div class="text-3xl font-bold text-white mb-2">Full</div>
+                        <div class="text-blue-100">CRUD Operations</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6">
+                        <div class="text-3xl font-bold text-white mb-2">10+</div>
+                        <div class="text-blue-100">Courses Supported</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Explore the System</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                    See the complete implementation with backend API and database integration
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://github.com/YasiruLR/Student-Management" target="_blank" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <i class="fab fa-github mr-3"></i>
+                        View Source Code
+                        <i class="fas fa-external-link-alt ml-3"></i>
+                    </a>
+                    <a href="../projects/index.html" class="inline-flex items-center px-8 py-4 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold rounded-full transition-all duration-300 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-400 dark:hover:text-white">
+                        <i class="fas fa-folder-open mr-3"></i>
+                        More Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        // Dark mode functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const html = document.documentElement;
+            
+            // Check for saved user preference or use system preference
+            if (localStorage.getItem('darkMode') === 'true' || 
+                (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                html.classList.add('dark');
+                darkModeToggle.checked = true;
+            }
+            
+            // Toggle dark mode
+            darkModeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    html.classList.add('dark');
+                    localStorage.setItem('darkMode', 'true');
+                } else {
+                    html.classList.remove('dark');
+                    localStorage.setItem('darkMode', 'false');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
