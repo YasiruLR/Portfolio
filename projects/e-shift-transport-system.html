@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shift Transport System - Yasiru Lakshan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 shadow-sm transition-colors duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-gray-900 dark:text-white font-bold text-xl">
+                    <a href="../index.html" class="gradient-text bg-gradient-to-r from-primary-600 to-secondary-600">Yasiru Lakshan</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <!-- Dark mode toggle -->
+                    <label class="dark-mode-toggle mr-4">
+                        <input type="checkbox" id="darkModeToggle" class="hidden">
+                        <span class="dark-mode-slider"></span>
+                    </label>
+                    <a href="../index.html" class="text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">Portfolio</a>
+                    <a href="../projects/index.html" class="text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">All Projects</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-green-50 to-teal-50 dark:from-gray-900 dark:to-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Project Info -->
+                    <div class="animate-fadeIn">
+                        <div class="inline-flex items-center px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full text-sm font-medium mb-6">
+                            <i class="fas fa-truck mr-2"></i>
+                            Transport Management System
+                        </div>
+                        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+                            E-Shift <span class="gradient-text bg-gradient-to-r from-green-600 to-teal-600">Transport System</span>
+                        </h1>
+                        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                            A comprehensive desktop transport management application built with C# and MySQL, designed to streamline logistics operations, track vehicles, manage drivers, optimize routes, and provide real-time monitoring for efficient transportation services.
+                        </p>
+                        
+                        <!-- Key Features -->
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                                <span class="text-gray-700 dark:text-gray-300">Vehicle Tracking</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700 dark:text-gray-300">Route Optimization</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                                <span class="text-gray-700 dark:text-gray-300">Driver Management</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                <span class="text-gray-700 dark:text-gray-300">Real-time Monitoring</span>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://github.com/YasiruLR/E-Shift-Transport-System" target="_blank" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-600 to-teal-600 text-white font-semibold rounded-full hover:from-green-700 hover:to-teal-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <i class="fab fa-github mr-3 text-lg"></i>
+                                View Source Code
+                                <i class="fas fa-external-link-alt ml-3"></i>
+                            </a>
+                            <a href="#features" class="inline-flex items-center px-8 py-4 border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold rounded-full transition-all duration-300 dark:text-green-400 dark:border-green-400 dark:hover:bg-green-400 dark:hover:text-white">
+                                <i class="fas fa-info-circle mr-3"></i>
+                                View Features
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Image -->
+                    <div class="animate-fadeIn delay-200">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl transform rotate-6"></div>
+                            <div class="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Transport management dashboard" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-truck text-green-600 text-lg"></i>
+                                            </div>
+                                            <div>
+                                                <div class="text-sm font-semibold text-gray-900 dark:text-white">Vehicle TK-001</div>
+                                                <div class="text-xs text-gray-500 dark:text-gray-400">Route: City Center</div>
+                                            </div>
+                                        </div>
+                                        <div class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 rounded-full text-xs font-medium">
+                                            Active
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-4 text-center">
+                                        <div>
+                                            <div class="text-lg font-bold text-green-600">45</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">km/h</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-lg font-bold text-teal-600">12</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">Stops</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-lg font-bold text-blue-600">95%</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">Fuel</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                    <span class="gradient-text bg-gradient-to-r from-green-600 to-teal-600">Technology Stack</span>
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- C# .NET -->
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fab fa-microsoft text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">C# .NET</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Robust backend framework with ASP.NET Core</p>
+                    </div>
+
+                    <!-- Windows Forms / WPF -->
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-desktop text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Windows Forms</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Desktop application with rich user interface</p>
+                    </div>
+
+                    <!-- MySQL Database -->
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-database text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">MySQL Database</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Relational database with optimized queries</p>
+                    </div>
+
+                    <!-- Maps Integration -->
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-map-marked-alt text-red-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Maps API</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Real-time location tracking and route mapping</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section id="features" class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                    Core <span class="gradient-text bg-gradient-to-r from-green-600 to-teal-600">Features</span>
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Vehicle Management -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-truck text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Vehicle Management</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Complete vehicle fleet management with registration, maintenance tracking, fuel monitoring, and performance analytics.</p>
+                    </div>
+
+                    <!-- Driver Management -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-user-tie text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Driver Management</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Driver profiles, license management, performance tracking, scheduling, and shift assignments with authentication system.</p>
+                    </div>
+
+                    <!-- Route Optimization -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-route text-teal-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Route Optimization</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Smart route planning with GPS integration, traffic analysis, fuel optimization, and estimated arrival times.</p>
+                    </div>
+
+                    <!-- Real-time Tracking -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-map-marker-alt text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Real-time Tracking</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Live vehicle location tracking, geofencing, speed monitoring, and instant alerts for unauthorized usage.</p>
+                    </div>
+
+                    <!-- Booking System -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-calendar-check text-indigo-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Booking System</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Online booking platform with schedule management, passenger registration, payment integration, and booking confirmations.</p>
+                    </div>
+
+                    <!-- Analytics Dashboard -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-orange-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Analytics Dashboard</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Comprehensive reporting with fuel consumption, route efficiency, driver performance, and financial analytics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Roles Section -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                    System <span class="gradient-text bg-gradient-to-r from-green-600 to-teal-600">User Roles</span>
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Admin Role -->
+                    <div class="bg-gradient-to-br from-green-50 to-teal-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user-shield text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white">System Admin</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Full system control</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Complete system management</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">User role management</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Financial reports access</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">System configuration</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Manager Role -->
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user-cog text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Fleet Manager</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Operations management</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Vehicle & driver management</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Route planning & optimization</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Performance monitoring</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Operational reports</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Driver Role -->
+                    <div class="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Driver</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Field operations</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">View assigned routes</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Update trip status</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Vehicle inspection reports</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Emergency notifications</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Impact -->
+    <section class="py-16 bg-gradient-to-r from-green-600 to-teal-600">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Project Impact</h2>
+                <p class="text-xl text-green-100 mb-12">
+                    Revolutionizing transport management with digital transformation
+                </p>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6">
+                        <div class="text-3xl font-bold text-white mb-2">100+</div>
+                        <div class="text-green-100">Vehicles Managed</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6">
+                        <div class="text-3xl font-bold text-white mb-2">50+</div>
+                        <div class="text-green-100">Active Drivers</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6">
+                        <div class="text-3xl font-bold text-white mb-2">24/7</div>
+                        <div class="text-green-100">Real-time Monitoring</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6">
+                        <div class="text-3xl font-bold text-white mb-2">30%</div>
+                        <div class="text-green-100">Fuel Savings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Explore the System</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                    Discover the complete transport management solution with modern technology stack
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://github.com/YasiruLR/E-Shift-Transport-System" target="_blank" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-600 to-teal-600 text-white font-semibold rounded-full hover:from-green-700 hover:to-teal-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <i class="fab fa-github mr-3"></i>
+                        View Source Code
+                        <i class="fas fa-external-link-alt ml-3"></i>
+                    </a>
+                    <a href="../projects/index.html" class="inline-flex items-center px-8 py-4 border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold rounded-full transition-all duration-300 dark:text-green-400 dark:border-green-400 dark:hover:bg-green-400 dark:hover:text-white">
+                        <i class="fas fa-folder-open mr-3"></i>
+                        More Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        // Dark mode functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const html = document.documentElement;
+            
+            // Check for saved user preference or use system preference
+            if (localStorage.getItem('darkMode') === 'true' || 
+                (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                html.classList.add('dark');
+                darkModeToggle.checked = true;
+            }
+            
+            // Toggle dark mode
+            darkModeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    html.classList.add('dark');
+                    localStorage.setItem('darkMode', 'true');
+                } else {
+                    html.classList.remove('dark');
+                    localStorage.setItem('darkMode', 'false');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
