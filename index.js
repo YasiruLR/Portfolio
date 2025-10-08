@@ -89,13 +89,44 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
     
-    // Hide loading screen
-    setTimeout(function() {
-        document.getElementById('loading-screen').classList.add('opacity-0');
-        setTimeout(function() {
-            document.getElementById('loading-screen').classList.add('hidden');
-        }, 500);
-    }, 1000);
+    // Enhanced loading screen with steps
+    const loadingSteps = [
+        { id: 'loading-step-1', text: '🎨 Preparing interface...', duration: 800 },
+        { id: 'loading-step-2', text: '📱 Loading projects...', duration: 1000 },
+        { id: 'loading-step-3', text: '✨ Almost ready...', duration: 600 }
+    ];
+
+    let currentStep = 0;
+    
+    function showNextStep() {
+        if (currentStep > 0) {
+            document.getElementById(loadingSteps[currentStep - 1].id).classList.remove('opacity-100');
+            document.getElementById(loadingSteps[currentStep - 1].id).classList.add('opacity-0');
+        }
+        
+        if (currentStep < loadingSteps.length) {
+            document.getElementById(loadingSteps[currentStep].id).classList.remove('opacity-0');
+            document.getElementById(loadingSteps[currentStep].id).classList.add('opacity-100');
+            
+            setTimeout(() => {
+                currentStep++;
+                showNextStep();
+            }, loadingSteps[currentStep].duration);
+        } else {
+            // All steps complete, hide loading screen
+            setTimeout(() => {
+                document.getElementById('loading-screen').classList.add('opacity-0');
+                setTimeout(() => {
+                    document.getElementById('loading-screen').classList.add('hidden');
+                }, 500);
+            }, 400);
+        }
+    }
+    
+    // Start the loading sequence
+    setTimeout(() => {
+        showNextStep();
+    }, 500);
     
     // Project Modals
     const modalBtns = document.querySelectorAll('.project-modal-btn');

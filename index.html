@@ -112,10 +112,78 @@
     
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-    <!-- Loading screen -->
-    <div id="loading-screen" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500">
-        <div class="loading-spinner w-16 h-16 border-4 border-primary-500 border-t-transparent rounded-full mb-4"></div>
-        <p class="text-gray-700 dark:text-gray-300">Loading portfolio...</p>
+    <!-- Enhanced Loading screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500 overflow-hidden">
+        <!-- Background Animation -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-10 w-40 h-40 bg-primary-400/20 rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
+            <div class="absolute bottom-10 right-20 w-60 h-60 bg-secondary-400/20 rounded-full mix-blend-multiply filter blur-3xl animate-float-delay"></div>
+            <div class="absolute top-1/3 right-1/4 w-80 h-80 bg-purple-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
+        </div>
+
+        <!-- Main Loading Content -->
+        <div class="relative z-10 flex flex-col items-center">
+            <!-- Logo with Animation -->
+            <div class="relative mb-8">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary-500/30 to-secondary-500/30 rounded-full blur-xl animate-pulse"></div>
+                <div class="relative w-24 h-24 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl shadow-2xl flex items-center justify-center transform animate-bounce">
+                    <span class="text-white font-bold text-2xl">YL</span>
+                </div>
+                <!-- Rotating Ring -->
+                <div class="absolute inset-0 w-24 h-24 border-4 border-transparent border-t-primary-500 border-r-secondary-500 rounded-full animate-spin"></div>
+            </div>
+
+            <!-- Enhanced Loading Spinner -->
+            <div class="relative mb-6">
+                <!-- Multiple Spinning Rings -->
+                <div class="w-20 h-20 relative">
+                    <div class="absolute inset-0 border-4 border-gray-200 dark:border-gray-700 rounded-full"></div>
+                    <div class="absolute inset-0 border-4 border-transparent border-t-primary-500 rounded-full animate-spin"></div>
+                    <div class="absolute inset-2 border-3 border-transparent border-t-secondary-500 rounded-full animate-spin" style="animation-direction: reverse; animation-duration: 1.5s;"></div>
+                    <div class="absolute inset-4 border-2 border-transparent border-t-purple-500 rounded-full animate-spin" style="animation-duration: 0.8s;"></div>
+                </div>
+                
+                <!-- Pulsing Dots -->
+                <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div class="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></div>
+                    <div class="w-2 h-2 bg-secondary-500 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+                    <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+                </div>
+            </div>
+
+            <!-- Enhanced Text with Animation -->
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-2">
+                    <span class="gradient-text bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+                        Yasiru Lakshan
+                    </span>
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400 text-lg mb-4 animate-pulse">Loading portfolio...</p>
+                
+                <!-- Progress Indicator -->
+                <div class="w-48 h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full animate-pulse"></div>
+                </div>
+                
+                <!-- Loading Steps -->
+                <div class="mt-6 text-sm text-gray-500 dark:text-gray-500 space-y-1">
+                    <div id="loading-step-1" class="opacity-100 transition-opacity duration-500">🎨 Preparing interface...</div>
+                    <div id="loading-step-2" class="opacity-0 transition-opacity duration-500">📱 Loading projects...</div>
+                    <div id="loading-step-3" class="opacity-0 transition-opacity duration-500">✨ Almost ready...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="absolute top-1/4 left-1/4 w-6 h-6 text-primary-500 animate-float opacity-60">
+            <i class="fas fa-code"></i>
+        </div>
+        <div class="absolute top-3/4 right-1/4 w-6 h-6 text-secondary-500 animate-float-delay opacity-60">
+            <i class="fas fa-palette"></i>
+        </div>
+        <div class="absolute bottom-1/4 left-1/3 w-6 h-6 text-purple-500 animate-float opacity-60" style="animation-delay: 1s;">
+            <i class="fas fa-laptop-code"></i>
+        </div>
     </div>
 
     <!-- Navigation -->
