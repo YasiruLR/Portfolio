@@ -186,48 +186,216 @@
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 shadow-sm transition-colors duration-300">
-        <div class="max-w-none mx-auto px-8 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-gray-900 dark:text-white font-bold text-xl flex items-center">
-                    <span class="gradient-text bg-gradient-to-r from-primary-600 to-secondary-600">Yasiru Lakshan</span>
-                    <!-- <span class="ml-2 hidden sm:inline"></span> -->
+    <!-- Enhanced Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500">
+        <!-- Progress Bar -->
+        <div id="scroll-progress" class="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 transition-all duration-300 ease-out" style="width: 0%"></div>
+        
+        <!-- Navigation Background with Dynamic Blur -->
+        <div class="absolute inset-0 backdrop-blur-lg bg-white/90 dark:bg-gray-900/90 border-b border-gray-200/20 dark:border-gray-700/20 transition-all duration-500"></div>
+        
+        <div class="relative max-w-none mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Enhanced Logo Section -->
+                <div class="flex items-center space-x-4 group">
+                    <!-- Animated Logo -->
+                    <div class="relative">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-xl shadow-lg flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                            <span class="text-white font-bold text-lg">YL</span>
+                        </div>
+                        <!-- Glow Effect -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary-600/30 to-secondary-600/30 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                    </div>
+                    
+                    <!-- Name and Title -->
+                    <div class="hidden sm:block">
+                        <h1 class="text-xl font-bold text-gray-900 dark:text-white">
+                            <span class="gradient-text bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+                                Yasiru Lakshan
+                            </span>
+                        </h1>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 -mt-1">Software Engineer</p>
+                    </div>
                 </div>
                 
-                <div class="flex items-center space-x-6">
-                    <div class="hidden md:flex space-x-8">
-                        <a href="#home" class="nav-link text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 underline-animation">Home</a>
-                        <a href="#about" class="nav-link text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 underline-animation">About</a>
-                        <a href="#projects" class="nav-link text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 underline-animation">Projects</a>
-                        <a href="#skills" class="nav-link text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 underline-animation">Skills</a>
-                        <a href="#reviews" class="nav-link text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 underline-animation">Reviews</a>
-                        <a href="#contact" class="nav-link text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 underline-animation">Contact</a>
+                <!-- Enhanced Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <div class="flex items-center space-x-1 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-2 border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
+                        <a href="#home" class="nav-link group relative px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 rounded-xl transition-all duration-300">
+                            <span class="relative z-10 flex items-center">
+                                <i class="fas fa-home mr-2 text-xs"></i>
+                                Home
+                            </span>
+                            <span class="absolute inset-0 bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/50 dark:to-secondary-900/50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        </a>
+                        <a href="#about" class="nav-link group relative px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 rounded-xl transition-all duration-300">
+                            <span class="relative z-10 flex items-center">
+                                <i class="fas fa-user mr-2 text-xs"></i>
+                                About
+                            </span>
+                            <span class="absolute inset-0 bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/50 dark:to-secondary-900/50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        </a>
+                        <a href="#projects" class="nav-link group relative px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 rounded-xl transition-all duration-300">
+                            <span class="relative z-10 flex items-center">
+                                <i class="fas fa-folder-open mr-2 text-xs"></i>
+                                Projects
+                            </span>
+                            <span class="absolute inset-0 bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/50 dark:to-secondary-900/50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        </a>
+                        <a href="#skills" class="nav-link group relative px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 rounded-xl transition-all duration-300">
+                            <span class="relative z-10 flex items-center">
+                                <i class="fas fa-code mr-2 text-xs"></i>
+                                Skills
+                            </span>
+                            <span class="absolute inset-0 bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/50 dark:to-secondary-900/50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        </a>
+                        <a href="#reviews" class="nav-link group relative px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 rounded-xl transition-all duration-300">
+                            <span class="relative z-10 flex items-center">
+                                <i class="fas fa-star mr-2 text-xs"></i>
+                                Reviews
+                            </span>
+                            <span class="absolute inset-0 bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/50 dark:to-secondary-900/50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        </a>
+                        <a href="#contact" class="nav-link group relative px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 rounded-xl transition-all duration-300">
+                            <span class="relative z-10 flex items-center">
+                                <i class="fas fa-envelope mr-2 text-xs"></i>
+                                Contact
+                            </span>
+                            <span class="absolute inset-0 bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/50 dark:to-secondary-900/50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex items-center space-x-4">
+                    <!-- Enhanced Dark Mode Toggle -->
+                    <div class="relative">
+                        <label class="group flex items-center cursor-pointer">
+                            <input type="checkbox" id="darkModeToggle" class="sr-only">
+                            <div class="relative w-14 h-8 bg-gray-300 dark:bg-gray-600 rounded-full shadow-inner transition-colors duration-300">
+                                <div class="absolute top-1 left-1 w-6 h-6 bg-white rounded-full shadow transform transition-transform duration-300 flex items-center justify-center group-hover:scale-110">
+                                    <i id="theme-icon" class="fas fa-sun text-yellow-500 text-xs transition-all duration-300"></i>
+                                </div>
+                            </div>
+                        </label>
                     </div>
                     
-                    <label class="dark-mode-toggle mr-4">
-                        <input type="checkbox" id="darkModeToggle" displyed="none" class="hidden">
-                        <span class="dark-mode-slider"></span>
-                    </label>
+                    <!-- Quick Action Button -->
+                    <a href="#contact" class="hidden md:inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-primary-600 to-secondary-600 text-white text-sm font-semibold rounded-full hover:from-secondary-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        <i class="fas fa-paper-plane mr-2 text-xs"></i>
+                        Hire Me
+                    </a>
                     
-                    <div class="md:hidden">
-                        <button id="mobile-menu-btn" class="text-gray-800 dark:text-gray-200 focus:outline-none">
-                            <i class="fas fa-bars text-xl"></i>
-                        </button>
-                    </div>
+                    <!-- Enhanced Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="lg:hidden relative w-10 h-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200/50 dark:border-gray-700/50 flex items-center justify-center transition-all duration-300 hover:scale-105">
+                        <div class="hamburger-lines space-y-1">
+                            <span class="block w-5 h-0.5 bg-gray-700 dark:bg-gray-300 transform transition-all duration-300"></span>
+                            <span class="block w-5 h-0.5 bg-gray-700 dark:bg-gray-300 transform transition-all duration-300"></span>
+                            <span class="block w-5 h-0.5 bg-gray-700 dark:bg-gray-300 transform transition-all duration-300"></span>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
         
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass-effect bg-white dark:bg-gray-800 shadow-lg rounded-b-lg">
-            <div class="px-6 py-4 space-y-4">
-                <a href="#home" class="block text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 py-2">Home</a>
-                <a href="#about" class="block text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 py-2">About</a>
-                <a href="#projects" class="block text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 py-2">Projects</a>
-                <a href="#skills" class="block text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 py-2">Skills</a>
-                <a href="#reviews" class="block text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 py-2">Reviews</a>
-                <a href="#contact" class="block text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 py-2">Contact</a>
+        <!-- Enhanced Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-2xl transform -translate-y-2 opacity-0 invisible transition-all duration-500 ease-out border-t border-gray-200/20 dark:border-gray-700/20">
+            <div class="max-w-sm mx-auto px-6 py-8">
+                <!-- Mobile User Info -->
+                <div class="flex items-center space-x-4 mb-8 pb-6 border-b border-gray-200/50 dark:border-gray-700/50">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl shadow-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">YL</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white">Yasiru Lakshan</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Software Engineer</p>
+                        <div class="flex items-center mt-1">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                            <span class="text-xs text-green-600 dark:text-green-400">Available for hire</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Navigation Links -->
+                <div class="space-y-2 mb-8">
+                    <a href="#home" class="mobile-nav-link group flex items-center px-4 py-4 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-xl transition-all duration-300">
+                        <div class="w-10 h-10 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-home text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Home</div>
+                            <div class="text-xs text-gray-500 dark:text-gray-400">Back to top</div>
+                        </div>
+                        <i class="fas fa-chevron-right ml-auto text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 group-hover:translate-x-1 transition-all duration-300"></i>
+                    </a>
+                    
+                    <a href="#about" class="mobile-nav-link group flex items-center px-4 py-4 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-xl transition-all duration-300">
+                        <div class="w-10 h-10 bg-secondary-100 dark:bg-secondary-900/30 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-user text-secondary-600 dark:text-secondary-400"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">About Me</div>
+                            <div class="text-xs text-gray-500 dark:text-gray-400">My story & skills</div>
+                        </div>
+                        <i class="fas fa-chevron-right ml-auto text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 group-hover:translate-x-1 transition-all duration-300"></i>
+                    </a>
+                    
+                    <a href="#projects" class="mobile-nav-link group flex items-center px-4 py-4 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-xl transition-all duration-300">
+                        <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-folder-open text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Projects</div>
+                            <div class="text-xs text-gray-500 dark:text-gray-400">10+ completed</div>
+                        </div>
+                        <i class="fas fa-chevron-right ml-auto text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 group-hover:translate-x-1 transition-all duration-300"></i>
+                    </a>
+                    
+                    <a href="#skills" class="mobile-nav-link group flex items-center px-4 py-4 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-xl transition-all duration-300">
+                        <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-code text-green-600 dark:text-green-400"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Skills</div>
+                            <div class="text-xs text-gray-500 dark:text-gray-400">Technologies</div>
+                        </div>
+                        <i class="fas fa-chevron-right ml-auto text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 group-hover:translate-x-1 transition-all duration-300"></i>
+                    </a>
+                    
+                    <a href="#reviews" class="mobile-nav-link group flex items-center px-4 py-4 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-xl transition-all duration-300">
+                        <div class="w-10 h-10 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-star text-yellow-600 dark:text-yellow-400"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Reviews</div>
+                            <div class="text-xs text-gray-500 dark:text-gray-400">Client feedback</div>
+                        </div>
+                        <i class="fas fa-chevron-right ml-auto text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 group-hover:translate-x-1 transition-all duration-300"></i>
+                    </a>
+                    
+                    <a href="#contact" class="mobile-nav-link group flex items-center px-4 py-4 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-xl transition-all duration-300">
+                        <div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-envelope text-red-600 dark:text-red-400"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Contact</div>
+                            <div class="text-xs text-gray-500 dark:text-gray-400">Get in touch</div>
+                        </div>
+                        <i class="fas fa-chevron-right ml-auto text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 group-hover:translate-x-1 transition-all duration-300"></i>
+                    </a>
+                </div>
+                
+                <!-- Mobile Action Buttons -->
+                <div class="space-y-3">
+                    <a href="#contact" class="block w-full px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white text-center font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Hire Me Now
+                    </a>
+                    <a href="./assects/Yasiru-Lakshan-CV.pdf" download class="block w-full px-6 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-center font-semibold rounded-xl hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300">
+                        <i class="fas fa-download mr-2"></i>
+                        Download CV
+                    </a>
+                </div>
             </div>
         </div>
     </nav>

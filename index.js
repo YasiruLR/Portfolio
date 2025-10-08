@@ -8,41 +8,209 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
     
-    // Mobile menu toggle
+    // Enhanced Navigation Functionality
+    const navbar = document.getElementById('navbar');
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
+    const scrollProgress = document.getElementById('scroll-progress');
+    const themeIcon = document.getElementById('theme-icon');
     
-    mobileMenuBtn.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
+    let lastScrollY = window.scrollY;
+    let isScrolling = false;
+    
+    // Scroll Progress Bar
+    function updateScrollProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        scrollProgress.style.width = `${Math.min(progress, 100)}%`;
+    }
+    
+    // Enhanced Mobile Menu Toggle
+    mobileMenuBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isActive = mobileMenu.classList.contains('active');
+        
+        if (isActive) {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        } else {
+            mobileMenu.classList.add('active');
+            mobileMenuBtn.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
     
     // Close mobile menu when clicking on a link
     const mobileMenuLinks = mobileMenu.querySelectorAll('a');
     mobileMenuLinks.forEach(link => {
         link.addEventListener('click', function() {
-            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            document.body.style.overflow = '';
         });
     });
     
-    // Dark mode toggle
+    // Navbar Scroll Effects
+    function handleScroll() {
+        const currentScrollY = window.scrollY;
+        
+        // Update scroll progress
+        updateScrollProgress();
+        
+        // Navbar hide/show on scroll
+        if (currentScrollY > 100) {
+            navbar.classList.add('scrolled');
+            
+            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                // Scrolling down - hide navbar
+                navbar.classList.add('hidden');
+            } else {
+                // Scrolling up - show navbar
+                navbar.classList.remove('hidden');
+            }
+        } else {
+            navbar.classList.remove('scrolled', 'hidden');
+        }
+        
+        lastScrollY = currentScrollY;
+    }
+    
+    // Throttled scroll handler
+    function throttledScroll() {
+        if (!isScrolling) {
+            requestAnimationFrame(() => {
+                handleScroll();
+                isScrolling = false;
+            });
+            isScrolling = true;
+        }
+    }
+    
+    window.addEventListener('scroll', throttledScroll);
+    
+    // Active Section Detection
+    function updateActiveSection() {
+        const sections = ['home', 'about', 'projects', 'skills', 'reviews', 'contact'];
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        let activeSection = 'home';
+        const scrollPos = window.scrollY + 100;
+        
+        sections.forEach(sectionId => {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const offsetTop = section.offsetTop;
+                const height = section.offsetHeight;
+                
+                if (scrollPos >= offsetTop && scrollPos < offsetTop + height) {
+                    activeSection = sectionId;
+                }
+            }
+        });
+        
+        // Update active nav links
+        navLinks.forEach(link => {
+            link.classList.remove('section-active');
+            if (link.getAttribute('href') === `#${activeSection}`) {
+                link.classList.add('section-active');
+            }
+        });
+    }
+    
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            
+            if (target) {
+                const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Update active section on scroll
+    window.addEventListener('scroll', updateActiveSection);
+    updateActiveSection(); // Initial call
+    
+    // Enhanced Dark Mode Toggle
     const darkModeToggle = document.getElementById('darkModeToggle');
     const html = document.documentElement;
     
-    // Check for saved user preference or use system preference
-    if (localStorage.getItem('darkMode') === 'true' || 
-        (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        html.classList.add('dark');
-        darkModeToggle.checked = true;
+    // Update theme icon
+    function updateThemeIcon(isDark) {
+        if (themeIcon) {
+            if (isDark) {
+                themeIcon.className = 'fas fa-moon text-gray-300 text-xs transition-all duration-300';
+            } else {
+                themeIcon.className = 'fas fa-sun text-yellow-500 text-xs transition-all duration-300';
+            }
+        }
     }
     
-    // Toggle dark mode
+    // Check for saved user preference or use system preference
+    const savedTheme = localStorage.getItem('darkMode');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'true' || (!savedTheme && systemDark)) {
+        html.classList.add('dark');
+        darkModeToggle.checked = true;
+        updateThemeIcon(true);
+    } else {
+        updateThemeIcon(false);
+    }
+    
+    // Toggle dark mode with smooth animation
     darkModeToggle.addEventListener('change', function() {
-        if (this.checked) {
+        const isDark = this.checked;
+        
+        // Add transition class for smooth animation
+        html.classList.add('theme-transition');
+        
+        if (isDark) {
             html.classList.add('dark');
             localStorage.setItem('darkMode', 'true');
+            updateThemeIcon(true);
         } else {
             html.classList.remove('dark');
             localStorage.setItem('darkMode', 'false');
+            updateThemeIcon(false);
+        }
+        
+        // Remove transition class after animation
+        setTimeout(() => {
+            html.classList.remove('theme-transition');
+        }, 300);
+    });
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('darkMode')) {
+            const isDark = e.matches;
+            if (isDark) {
+                html.classList.add('dark');
+                darkModeToggle.checked = true;
+            } else {
+                html.classList.remove('dark');
+                darkModeToggle.checked = false;
+            }
+            updateThemeIcon(isDark);
         }
     });
     
