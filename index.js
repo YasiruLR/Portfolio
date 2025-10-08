@@ -128,6 +128,60 @@ document.addEventListener('DOMContentLoaded', function() {
         showNextStep();
     }, 500);
     
+    // Rotating Text Animation for Home Section
+    const rotatingTextElement = document.getElementById('rotating-text');
+    if (rotatingTextElement) {
+        const texts = [
+            'Software Engineer',
+            'Full-Stack Developer', 
+            'UI/UX Designer',
+            'Problem Solver',
+            'AI Enthusiast',
+            'Tech Innovator'
+        ];
+        
+        let currentIndex = 0;
+        
+        function typeText(text, callback) {
+            let i = 0;
+            const typeInterval = setInterval(() => {
+                rotatingTextElement.textContent = text.substring(0, i + 1);
+                i++;
+                if (i >= text.length) {
+                    clearInterval(typeInterval);
+                    setTimeout(callback, 2000); // Wait 2 seconds before callback
+                }
+            }, 100);
+        }
+        
+        function deleteText(callback) {
+            let currentText = rotatingTextElement.textContent;
+            let i = currentText.length;
+            const deleteInterval = setInterval(() => {
+                rotatingTextElement.textContent = currentText.substring(0, i - 1);
+                i--;
+                if (i <= 0) {
+                    clearInterval(deleteInterval);
+                    setTimeout(callback, 500); // Wait 0.5 seconds before callback
+                }
+            }, 50);
+        }
+        
+        function rotateText() {
+            typeText(texts[currentIndex], () => {
+                deleteText(() => {
+                    currentIndex = (currentIndex + 1) % texts.length;
+                    rotateText();
+                });
+            });
+        }
+        
+        // Start the rotation after a delay
+        setTimeout(() => {
+            rotateText();
+        }, 2000);
+    }
+    
     // Project Modals
     const modalBtns = document.querySelectorAll('.project-modal-btn');
     const modals = document.querySelectorAll('.project-modal');
