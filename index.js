@@ -244,5 +244,275 @@ function toggleAllProjects() {
     }
 }
 
+// Review System
+class ReviewSystem {
+    constructor() {
+        this.reviews = JSON.parse(localStorage.getItem('portfolioReviews')) || [];
+        this.currentRating = 0;
+        this.init();
+    }
+
+    init() {
+        this.setupStarRating();
+        this.setupReviewForm();
+        this.displayReviews();
+        this.updateStats();
+    }
+
+    setupStarRating() {
+        const starButtons = document.querySelectorAll('.star-btn');
+        const ratingValue = document.getElementById('ratingValue');
+        const ratingText = document.getElementById('ratingText');
+
+        starButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const rating = parseInt(button.dataset.rating);
+                this.currentRating = rating;
+                ratingValue.value = rating;
+
+                // Update star display
+                starButtons.forEach((star, index) => {
+                    if (index < rating) {
+                        star.classList.remove('text-gray-300');
+                        star.classList.add('text-yellow-400');
+                    } else {
+                        star.classList.remove('text-yellow-400');
+                        star.classList.add('text-gray-300');
+                    }
+                });
+
+                // Update rating text
+                const ratingTexts = ['', 'Poor', 'Fair', 'Good', 'Very Good', 'Excellent'];
+                ratingText.textContent = ratingTexts[rating];
+            });
+
+            // Hover effect
+            button.addEventListener('mouseenter', () => {
+                const rating = parseInt(button.dataset.rating);
+                starButtons.forEach((star, index) => {
+                    if (index < rating) {
+                        star.style.transform = 'scale(1.1)';
+                    }
+                });
+            });
+
+            button.addEventListener('mouseleave', () => {
+                starButtons.forEach(star => {
+                    star.style.transform = 'scale(1)';
+                });
+            });
+        });
+    }
+
+    setupReviewForm() {
+        const form = document.getElementById('reviewForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.submitReview();
+        });
+    }
+
+    submitReview() {
+        const name = document.getElementById('reviewName').value.trim();
+        const company = document.getElementById('reviewCompany').value.trim();
+        const project = document.getElementById('reviewProject').value;
+        const rating = this.currentRating;
+        const text = document.getElementById('reviewText').value.trim();
+
+        if (!name || !rating || !text || !project) {
+            this.showNotification('Please fill in all required fields', 'error');
+            return;
+        }
+
+        const review = {
+            id: Date.now(),
+            name,
+            company,
+            project,
+            rating,
+            text,
+            date: new Date().toISOString(),
+            approved: true // Auto-approve for demo purposes
+        };
+
+        this.reviews.unshift(review);
+        this.saveReviews();
+        this.displayReviews();
+        this.updateStats();
+        this.resetForm();
+        this.showNotification('Thank you for your review! It has been posted.', 'success');
+    }
+
+    saveReviews() {
+        localStorage.setItem('portfolioReviews', JSON.stringify(this.reviews));
+    }
+
+    displayReviews() {
+        const reviewsList = document.getElementById('reviewsList');
+        const noReviews = document.getElementById('noReviews');
+
+        if (this.reviews.length === 0) {
+            reviewsList.innerHTML = '';
+            noReviews.classList.remove('hidden');
+            return;
+        }
+
+        noReviews.classList.add('hidden');
+        reviewsList.innerHTML = this.reviews.map(review => this.createReviewHTML(review)).join('');
+    }
+
+    createReviewHTML(review) {
+        const projectTypes = {
+            'web-development': 'Web Development',
+            'mobile-app': 'Mobile App',
+            'ai-integration': 'AI Integration',
+            'full-stack': 'Full-Stack',
+            'ui-ux-design': 'UI/UX Design',
+            'consultation': 'Consultation',
+            'other': 'Other'
+        };
+
+        const projectColors = {
+            'web-development': 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300',
+            'mobile-app': 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300',
+            'ai-integration': 'bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300',
+            'full-stack': 'bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300',
+            'ui-ux-design': 'bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300',
+            'consultation': 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300',
+            'other': 'bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-300'
+        };
+
+        const timeAgo = this.getTimeAgo(review.date);
+        const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+
+        return `
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300">
+                <div class="flex items-start justify-between mb-3">
+                    <div>
+                        <h5 class="font-semibold text-gray-900 dark:text-white">${this.escapeHTML(review.name)}</h5>
+                        ${review.company ? `<p class="text-sm text-gray-500 dark:text-gray-400">${this.escapeHTML(review.company)}</p>` : ''}
+                    </div>
+                    <div class="flex text-yellow-400 text-sm">
+                        ${stars.split('').map(star => `<span>${star}</span>`).join('')}
+                    </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                    "${this.escapeHTML(review.text)}"
+                </p>
+                <div class="flex items-center justify-between">
+                    <span class="text-xs ${projectColors[review.project]} px-2 py-1 rounded-full">
+                        ${projectTypes[review.project]}
+                    </span>
+                    <span class="text-xs text-gray-400">${timeAgo}</span>
+                </div>
+            </div>
+        `;
+    }
+
+    updateStats() {
+        const averageRatingEl = document.getElementById('averageRating');
+        const averageStarsEl = document.getElementById('averageStars');
+        const totalReviewsEl = document.getElementById('totalReviews');
+
+        if (this.reviews.length === 0) {
+            averageRatingEl.textContent = '5.0';
+            totalReviewsEl.textContent = 'Based on 0 reviews';
+            return;
+        }
+
+        const average = this.reviews.reduce((sum, review) => sum + review.rating, 0) / this.reviews.length;
+        averageRatingEl.textContent = average.toFixed(1);
+        totalReviewsEl.textContent = `Based on ${this.reviews.length} review${this.reviews.length !== 1 ? 's' : ''}`;
+
+        // Update star display
+        const fullStars = Math.floor(average);
+        const hasHalfStar = average % 1 >= 0.5;
+        
+        let starsHTML = '';
+        for (let i = 0; i < 5; i++) {
+            if (i < fullStars) {
+                starsHTML += '<i class="fas fa-star text-yellow-400"></i>';
+            } else if (i === fullStars && hasHalfStar) {
+                starsHTML += '<i class="fas fa-star-half-alt text-yellow-400"></i>';
+            } else {
+                starsHTML += '<i class="far fa-star text-yellow-400"></i>';
+            }
+        }
+        averageStarsEl.innerHTML = starsHTML;
+    }
+
+    resetForm() {
+        document.getElementById('reviewForm').reset();
+        document.getElementById('ratingValue').value = '';
+        document.getElementById('ratingText').textContent = 'Click to rate';
+        this.currentRating = 0;
+
+        // Reset stars
+        const starButtons = document.querySelectorAll('.star-btn');
+        starButtons.forEach(star => {
+            star.classList.remove('text-yellow-400');
+            star.classList.add('text-gray-300');
+        });
+    }
+
+    getTimeAgo(dateString) {
+        const now = new Date();
+        const date = new Date(dateString);
+        const diffInMinutes = Math.floor((now - date) / (1000 * 60));
+
+        if (diffInMinutes < 1) return 'Just now';
+        if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+        
+        const diffInHours = Math.floor(diffInMinutes / 60);
+        if (diffInHours < 24) return `${diffInHours}h ago`;
+        
+        const diffInDays = Math.floor(diffInHours / 24);
+        if (diffInDays < 30) return `${diffInDays}d ago`;
+        
+        const diffInMonths = Math.floor(diffInDays / 30);
+        return `${diffInMonths}mo ago`;
+    }
+
+    escapeHTML(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg transition-all duration-300 ${
+            type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+        }`;
+        notification.innerHTML = `
+            <div class="flex items-center">
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle'} mr-2"></i>
+                ${message}
+            </div>
+        `;
+
+        document.body.appendChild(notification);
+
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+
+        // Remove after 3 seconds
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+}
+
+// Initialize Review System
+document.addEventListener('DOMContentLoaded', function() {
+    new ReviewSystem();
+});
+
 
 
