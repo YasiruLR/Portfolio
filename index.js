@@ -506,42 +506,87 @@ document.addEventListener('DOMContentLoaded', function() {
     let isChatOpen = false;
     let isTyping = false;
     
-    // Chatbot responses database
+    // Enhanced Chatbot responses database with comprehensive questions and answers
     const chatResponses = {
         greetings: [
-            "Hello! 👋 I'm here to help you learn about Yasiru's work and experience.",
-            "Hi there! 🌟 Feel free to ask me anything about Yasiru's projects or skills.",
-            "Welcome! 🚀 I'm YL Assistant. How can I help you explore Yasiru's portfolio today?"
+            "Hello! 👋 I'm YL Assistant, here to help you explore Yasiru's work and experience. Feel free to ask me anything!",
+            "Hi there! 🌟 Welcome to Yasiru's portfolio! I can answer questions about his projects, skills, experience, and much more.",
+            "Welcome! 🚀 I'm here to help you discover everything about Yasiru Lakshan - from his latest projects to his technical expertise. What would you like to know?"
         ],
         projects: [
-            "Yasiru has developed 10+ amazing projects! 🎯 His portfolio includes full-stack web applications, mobile apps, and AI-integrated solutions. Would you like me to highlight a specific project?",
-            "Great question! 💼 Yasiru specializes in modern web development with React, Node.js, and cutting-edge technologies. His projects range from e-commerce platforms to AI-powered applications. Check out the Projects section!",
-            "Yasiru's project portfolio is impressive! 🌟 He's built everything from student management systems to advanced web applications. Each project showcases his expertise in both frontend and backend development."
+            "Yasiru has developed 10+ amazing projects! 🎯 His portfolio includes full-stack web applications, mobile apps, AI-integrated solutions, e-commerce platforms, and student management systems. Would you like details about any specific project?",
+            "Great question! 💼 Yasiru's project portfolio showcases expertise in React, Node.js, Spring Boot, and cutting-edge technologies. Each project demonstrates his ability to deliver end-to-end solutions. Check out the Projects section for detailed case studies!",
+            "Yasiru's projects span across various domains! 🌟 From healthcare management systems to AI-powered chatbots, e-commerce platforms to mobile applications - each project showcases his full-stack development capabilities and attention to user experience."
         ],
         skills: [
-            "Yasiru is proficient in 15+ technologies! 🛠️ His core skills include React, Node.js, Python, JavaScript, TypeScript, MongoDB, MySQL, and modern frameworks like Next.js and Express.js.",
-            "His technical expertise spans across: 💻 Frontend (React, Vue.js, Tailwind CSS), Backend (Node.js, Express, Python), Databases (MongoDB, MySQL), and emerging technologies like AI integration!",
-            "Yasiru's skill set is quite comprehensive! 🎯 He excels in full-stack development, UI/UX design, database management, and has experience with cloud platforms and AI technologies."
+            "Yasiru is proficient in 15+ technologies! 🛠️ Frontend: React, Next.js, Vue.js, TypeScript, Tailwind CSS. Backend: Node.js, Express.js, Spring Boot, Python. Databases: MongoDB, MySQL, PostgreSQL. Also experienced with AI integration, cloud platforms, and mobile development!",
+            "His technical expertise is comprehensive! 💻 Full-stack development (92% proficiency), Backend systems (88%), Mobile development (85%), AI Integration (80%). He's also skilled in UI/UX design, DevOps practices, and modern development workflows.",
+            "Yasiru's skill set covers the entire development spectrum! 🎯 From crafting pixel-perfect user interfaces to building robust backend systems, managing databases, and integrating AI capabilities. He stays updated with the latest tech trends and best practices."
         ],
         contact: [
-            "You can reach Yasiru through multiple channels! 📧 Email: yasiru.lakshan@example.com | 💼 LinkedIn: linkedin.com/in/yasiru-lakshan-70b4b4355 | 🐙 GitHub: github.com/YasiruLR",
-            "Yasiru is available for collaborations and opportunities! 🤝 Feel free to connect via email or LinkedIn. You can also download his CV using the download button in the navigation.",
-            "Ready to connect with Yasiru? 🚀 You'll find all his contact information in the Contact section, or you can download his latest CV right from the navigation bar!"
+            "You can reach Yasiru through multiple channels! 📧 Email: yasiru.lakshan.dev@gmail.com | 💼 LinkedIn: linkedin.com/in/yasiru-lakshan-70b4b4355 | 🐙 GitHub: github.com/YasiruLR | 📱 Available for freelance and full-time opportunities!",
+            "Yasiru is actively seeking new opportunities! 🤝 He's available for collaborations, freelance projects, or full-time positions. Connect via LinkedIn for professional inquiries, or check his GitHub for code samples and contributions.",
+            "Ready to connect with Yasiru? 🚀 He's open to discussing project ideas, job opportunities, or technical collaborations. You'll find all contact details in the Contact section, plus you can download his comprehensive CV!"
         ],
         cv: [
-            "📄 You can download Yasiru's latest CV by clicking the download button in the navigation or visiting the Contact section. It contains detailed information about his education, experience, and projects!",
-            "His CV showcases his Second Class Upper Division degree from London Metropolitan University and 3+ years of development experience. 🎓 You can download it directly from the site!",
-            "Yasiru's CV highlights his journey from university graduate to experienced developer! 📈 It includes all his certifications, projects, and technical expertise. Download link is available in the navigation."
+            "📄 Yasiru's CV showcases his BEng (Hons) Software Engineering degree (Second Class Upper Division) from London Metropolitan University, 3+ years of development experience, and detailed project portfolio. Download it from the navigation or contact section!",
+            "His comprehensive CV includes: 🎓 Academic achievements, professional experience, detailed project descriptions, technical certifications, and references. It's regularly updated with his latest accomplishments and skills.",
+            "Download Yasiru's CV to see: 📈 Complete project portfolio, technical skill assessments, educational background, professional references, and career progression. Perfect for recruiters and potential collaborators!"
         ],
         experience: [
-            "Yasiru brings 3+ years of software development experience! 💼 He's worked on diverse projects ranging from academic systems to commercial applications, always focusing on innovative solutions.",
-            "His professional journey includes full-stack development, UI/UX design, and team collaboration. 🌟 Yasiru has successfully delivered projects for various clients and has a track record of quality work.",
-            "With his educational background and practical experience, Yasiru has developed a strong foundation in modern software development practices and emerging technologies! 🚀"
+            "Yasiru brings 3+ years of diverse software development experience! 💼 He's worked on academic projects, commercial applications, freelance work, and personal ventures. His experience spans full-stack development, mobile apps, AI integration, and UI/UX design.",
+            "His professional journey includes: 🌟 Full-stack web development, mobile application creation, AI-powered solution implementation, database design and optimization, and collaborative team projects. He's delivered successful projects across multiple industries.",
+            "Yasiru's experience encompasses: 🚀 Modern web technologies, mobile development frameworks, AI/ML integration, database management, cloud deployment, and agile development practices. He combines technical expertise with creative problem-solving."
+        ],
+        education: [
+            "Yasiru holds a BEng (Hons) Software Engineering degree with Second Class Upper Division from London Metropolitan University (UK)! 🎓 He also has Higher National Diploma in Computing, Diploma in Academic English, and Diploma in Management.",
+            "His educational background is impressive! 📚 Software Engineering degree from a prestigious UK university, complemented by additional qualifications in computing, English proficiency, and management. This diverse education enhances his technical and communication skills.",
+            "Academic excellence defines Yasiru's foundation! 🌟 His UK engineering degree provides strong technical fundamentals, while additional diplomas in computing, English, and management give him well-rounded professional capabilities."
+        ],
+        technologies: [
+            "Yasiru works with cutting-edge technologies! 🔥 React & Next.js for frontend, Node.js & Spring Boot for backend, MongoDB & MySQL for databases, TypeScript for type safety, Tailwind CSS for styling, and AI APIs for intelligent features.",
+            "His tech stack is modern and versatile! ⚡ Frontend frameworks (React, Vue.js), Backend technologies (Node.js, Express, Spring Boot), Databases (SQL & NoSQL), Mobile development (React Native, Flutter), and emerging tech like AI integration.",
+            "Technology expertise includes: 🛠️ JavaScript ecosystem (React, Node.js, TypeScript), Java frameworks (Spring Boot), Python for AI/ML, modern CSS frameworks, database systems, version control (Git), and cloud platforms for deployment."
+        ],
+        availability: [
+            "Yasiru is actively seeking new opportunities! ✅ He's available for full-time positions, freelance projects, consulting work, and collaborative ventures. Currently open to remote work, hybrid arrangements, or relocation for the right opportunity.",
+            "He's ready for new challenges! 🚀 Whether it's a startup environment, established company, or innovative project - Yasiru brings enthusiasm, technical expertise, and fresh perspectives to any team or collaboration.",
+            "Available and eager to contribute! 💪 Yasiru is looking for roles where he can apply his full-stack skills, work with modern technologies, and contribute to meaningful projects. He's particularly interested in AI integration and user-centric applications."
+        ],
+        pricing: [
+            "Yasiru offers competitive rates for freelance work! 💰 Pricing depends on project complexity, timeline, and requirements. He provides detailed quotes after understanding your specific needs. Contact him for a personalized discussion about your project budget.",
+            "His pricing is flexible and fair! 📊 Yasiru considers factors like project scope, technology stack, deadlines, and long-term maintenance needs. He offers both hourly rates and project-based pricing to suit different client preferences.",
+            "For pricing information: 💼 Yasiru provides transparent quotes based on project requirements. He's open to discussing various payment structures and can work within reasonable budgets while ensuring quality deliverables."
+        ],
+        collaboration: [
+            "Yasiru loves collaborating with other developers, designers, and entrepreneurs! 🤝 He's experienced in team environments, agile methodologies, version control workflows, and cross-functional communication. Open to both remote and in-person collaborations.",
+            "Teamwork makes the dream work! 👥 Yasiru brings strong collaboration skills, clear communication, and a positive attitude to team projects. He's comfortable with project management tools, code reviews, and collaborative development practices.",
+            "Ready to team up! 🌟 Whether it's pair programming, code reviews, project planning, or cross-team collaboration - Yasiru contributes effectively to team success while learning from others and sharing his expertise."
+        ],
+        timeline: [
+            "Project timelines vary based on complexity! ⏰ Simple websites: 1-2 weeks, Full-stack applications: 4-8 weeks, Mobile apps: 6-12 weeks, AI integration projects: 3-6 weeks. Yasiru provides realistic estimates and regular progress updates.",
+            "He believes in setting realistic expectations! 📅 Yasiru thoroughly analyzes project requirements before providing timeline estimates. He accounts for development, testing, revisions, and deployment phases to ensure quality delivery.",
+            "Timeline planning is key! 🎯 Yasiru works with clients to establish clear milestones, deliverables, and deadlines. He's committed to meeting agreed timelines while maintaining high code quality and user experience standards."
+        ],
+        process: [
+            "Yasiru follows a structured development process! 🔄 Discovery & Planning → Design & Architecture → Development → Testing → Deployment → Maintenance. He keeps clients informed throughout and welcomes feedback at each stage.",
+            "His workflow is professional and efficient! ⚡ Requirements gathering, technical planning, iterative development, regular client updates, thorough testing, and smooth deployment. Yasiru uses modern tools and best practices throughout.",
+            "The development journey with Yasiru: 🛣️ Initial consultation, project scope definition, technology selection, development sprints, regular demos, testing phases, and final deployment with documentation and support."
+        ],
+        industries: [
+            "Yasiru has experience across multiple industries! 🏢 Education (student management systems), Healthcare (appointment systems), E-commerce (online stores), Finance (banking apps), and Technology (SaaS platforms). He adapts quickly to new domains.",
+            "Diverse industry experience includes: 🌍 Educational technology, healthcare management, retail and e-commerce, financial services, entertainment, and emerging tech sectors. Yasiru understands different business needs and user expectations.",
+            "Cross-industry expertise! 💼 From academic institutions to healthcare providers, from startups to established businesses - Yasiru brings relevant experience and fresh perspectives to projects across various sectors."
+        ],
+        passion: [
+            "Yasiru is passionate about creating digital solutions that make a real difference! ❤️ He loves solving complex problems, learning new technologies, and building applications that improve people's lives and business processes.",
+            "What drives him: 🔥 The intersection of technology and human needs. Yasiru enjoys crafting intuitive user experiences, optimizing performance, and staying ahead of tech trends. He's particularly excited about AI's potential to enhance applications.",
+            "His motivation comes from: 🌟 Turning ideas into reality, solving challenging technical problems, continuous learning, and contributing to projects that have positive impact. Yasiru thrives on innovation and creative problem-solving."
         ],
         default: [
-            "That's an interesting question! 🤔 I'm here to help you learn about Yasiru's work, projects, skills, and experience. What would you like to know more about?",
-            "I'd be happy to help! ✨ You can ask me about Yasiru's projects, technical skills, experience, or how to get in touch with him. What interests you most?",
-            "Great question! 🎯 I'm designed to share information about Yasiru's portfolio, expertise, and professional background. Feel free to ask about any specific aspect!"
+            "That's an interesting question! 🤔 I can help you learn about Yasiru's projects, technical skills, experience, education, availability, pricing, or anything else related to his professional background. What specific aspect interests you?",
+            "I'd be happy to help! ✨ You can ask me about Yasiru's technical expertise, project portfolio, work experience, educational background, availability for new projects, collaboration style, or any other professional topics.",
+            "Great question! 🎯 I'm here to provide comprehensive information about Yasiru's professional profile. Feel free to ask about his skills, projects, experience, education, work process, industry experience, or anything else you'd like to know!"
         ]
     };
     
@@ -622,27 +667,83 @@ document.addEventListener('DOMContentLoaded', function() {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
     
-    // Generate AI response
+    // Enhanced AI response with comprehensive keyword matching
     function generateResponse(message) {
         const lowerMessage = message.toLowerCase();
         
-        if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+        // Greeting responses
+        if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey') || lowerMessage.includes('good morning') || lowerMessage.includes('good afternoon')) {
             return getRandomResponse('greetings');
         }
-        if (lowerMessage.includes('project') || lowerMessage.includes('work') || lowerMessage.includes('portfolio')) {
+        
+        // Project-related responses
+        if (lowerMessage.includes('project') || lowerMessage.includes('work') || lowerMessage.includes('portfolio') || lowerMessage.includes('developed') || lowerMessage.includes('built')) {
             return getRandomResponse('projects');
         }
-        if (lowerMessage.includes('skill') || lowerMessage.includes('technology') || lowerMessage.includes('tech') || lowerMessage.includes('programming')) {
+        
+        // Skills and technology responses
+        if (lowerMessage.includes('skill') || lowerMessage.includes('technology') || lowerMessage.includes('tech') || lowerMessage.includes('programming') || lowerMessage.includes('framework') || lowerMessage.includes('language')) {
             return getRandomResponse('skills');
         }
-        if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('reach') || lowerMessage.includes('connect')) {
+        
+        // Technology-specific responses
+        if (lowerMessage.includes('react') || lowerMessage.includes('node') || lowerMessage.includes('javascript') || lowerMessage.includes('python') || lowerMessage.includes('database') || lowerMessage.includes('frontend') || lowerMessage.includes('backend')) {
+            return getRandomResponse('technologies');
+        }
+        
+        // Contact responses
+        if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('reach') || lowerMessage.includes('connect') || lowerMessage.includes('hire') || lowerMessage.includes('linkedin')) {
             return getRandomResponse('contact');
         }
-        if (lowerMessage.includes('cv') || lowerMessage.includes('resume') || lowerMessage.includes('download')) {
+        
+        // CV/Resume responses
+        if (lowerMessage.includes('cv') || lowerMessage.includes('resume') || lowerMessage.includes('download') || lowerMessage.includes('qualification')) {
             return getRandomResponse('cv');
         }
-        if (lowerMessage.includes('experience') || lowerMessage.includes('background') || lowerMessage.includes('career')) {
+        
+        // Experience responses
+        if (lowerMessage.includes('experience') || lowerMessage.includes('background') || lowerMessage.includes('career') || lowerMessage.includes('professional') || lowerMessage.includes('years')) {
             return getRandomResponse('experience');
+        }
+        
+        // Education responses
+        if (lowerMessage.includes('education') || lowerMessage.includes('degree') || lowerMessage.includes('university') || lowerMessage.includes('study') || lowerMessage.includes('academic') || lowerMessage.includes('qualification')) {
+            return getRandomResponse('education');
+        }
+        
+        // Availability responses
+        if (lowerMessage.includes('available') || lowerMessage.includes('free') || lowerMessage.includes('hire') || lowerMessage.includes('opportunity') || lowerMessage.includes('job') || lowerMessage.includes('position')) {
+            return getRandomResponse('availability');
+        }
+        
+        // Pricing responses
+        if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('rate') || lowerMessage.includes('budget') || lowerMessage.includes('payment') || lowerMessage.includes('fee')) {
+            return getRandomResponse('pricing');
+        }
+        
+        // Timeline responses
+        if (lowerMessage.includes('timeline') || lowerMessage.includes('time') || lowerMessage.includes('duration') || lowerMessage.includes('deadline') || lowerMessage.includes('schedule') || lowerMessage.includes('delivery')) {
+            return getRandomResponse('timeline');
+        }
+        
+        // Collaboration responses
+        if (lowerMessage.includes('collaborate') || lowerMessage.includes('team') || lowerMessage.includes('work together') || lowerMessage.includes('partnership') || lowerMessage.includes('cooperation')) {
+            return getRandomResponse('collaboration');
+        }
+        
+        // Process responses
+        if (lowerMessage.includes('process') || lowerMessage.includes('workflow') || lowerMessage.includes('method') || lowerMessage.includes('approach') || lowerMessage.includes('how do you')) {
+            return getRandomResponse('process');
+        }
+        
+        // Industry responses
+        if (lowerMessage.includes('industry') || lowerMessage.includes('domain') || lowerMessage.includes('sector') || lowerMessage.includes('business') || lowerMessage.includes('field')) {
+            return getRandomResponse('industries');
+        }
+        
+        // Passion/motivation responses
+        if (lowerMessage.includes('passion') || lowerMessage.includes('motivation') || lowerMessage.includes('why') || lowerMessage.includes('inspire') || lowerMessage.includes('love')) {
+            return getRandomResponse('passion');
         }
         
         return getRandomResponse('default');
@@ -677,20 +778,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Quick action buttons
+    // Enhanced quick action buttons with comprehensive question handling
     quickActionBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const text = e.target.textContent.trim();
             let message = '';
             
+            // Main categories
             if (text.includes('Projects')) {
-                message = 'Tell me about Yasiru\'s projects';
+                message = 'Tell me about Yasiru\'s projects and portfolio';
             } else if (text.includes('Skills')) {
-                message = 'What are Yasiru\'s technical skills?';
+                message = 'What are Yasiru\'s technical skills and expertise?';
             } else if (text.includes('Contact')) {
-                message = 'How can I contact Yasiru?';
+                message = 'How can I contact Yasiru for opportunities?';
             } else if (text.includes('CV')) {
-                message = 'Can I download Yasiru\'s CV?';
+                message = 'Can I download Yasiru\'s CV and resume?';
+            }
+            // New enhanced categories
+            else if (text.includes('Education')) {
+                message = 'What is Yasiru\'s educational background and qualifications?';
+            } else if (text.includes('Pricing')) {
+                message = 'What are Yasiru\'s rates and pricing for projects?';
+            } else if (text.includes('Timeline')) {
+                message = 'How long do projects typically take with Yasiru?';
+            } else if (text.includes('Collaboration')) {
+                message = 'How does Yasiru work with teams and collaborate?';
+            } else if (text.includes('Availability')) {
+                message = 'Is Yasiru available for new projects and opportunities?';
+            } else if (text.includes('Industry')) {
+                message = 'What industries has Yasiru worked with?';
             }
             
             if (message) {
