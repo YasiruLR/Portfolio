@@ -379,6 +379,120 @@
         </div>
     </div>
 
+    <!-- AI Chatbot Feature -->
+    <div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
+        <!-- Chat Button -->
+        <button id="chat-toggle" class="group relative w-16 h-16 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center animate-pulse">
+            <!-- Chat Icon -->
+            <div id="chat-icon" class="transition-all duration-300">
+                <i class="fas fa-comments text-2xl group-hover:animate-bounce"></i>
+            </div>
+            <!-- Close Icon (Hidden Initially) -->
+            <div id="close-icon" class="absolute inset-0 flex items-center justify-center transition-all duration-300 opacity-0 transform rotate-180 scale-0">
+                <i class="fas fa-times text-2xl"></i>
+            </div>
+            <!-- Notification Badge -->
+            <div id="chat-notification" class="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-xs font-bold animate-bounce">
+                1
+            </div>
+            <!-- Glow Effect -->
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-600/30 to-secondary-600/30 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+        </button>
+
+        <!-- Chat Interface -->
+        <div id="chat-interface" class="absolute bottom-20 right-0 w-96 h-96 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl transform scale-0 opacity-0 transition-all duration-300 origin-bottom-right overflow-hidden border border-gray-200/50 dark:border-gray-700/50">
+            <!-- Chat Header -->
+            <div class="flex items-center justify-between p-4 bg-gradient-to-r from-primary-600 to-secondary-600 text-white">
+                <div class="flex items-center space-x-3">
+                    <div class="relative">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                            <i class="fas fa-robot text-lg"></i>
+                        </div>
+                        <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">YL Assistant</h3>
+                        <p class="text-xs opacity-90">AI Portfolio Helper • Online</p>
+                    </div>
+                </div>
+                <button id="chat-minimize" class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors duration-200">
+                    <i class="fas fa-minus text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Chat Messages -->
+            <div id="chat-messages" class="flex-1 p-4 h-64 overflow-y-auto space-y-4 bg-gray-50 dark:bg-gray-900/50">
+                <!-- Welcome Message -->
+                <div class="flex items-start space-x-3 animate-fade-in">
+                    <div class="w-8 h-8 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-robot text-white text-xs"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl rounded-tl-md p-3 shadow-sm border border-gray-200/50 dark:border-gray-700/50">
+                            <p class="text-sm text-gray-700 dark:text-gray-300">
+                                👋 Hi! I'm YL Assistant, Yasiru's AI helper. I can tell you about his projects, skills, experience, and answer any questions about his work!
+                            </p>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Just now</p>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="flex flex-wrap gap-2 px-11">
+                    <button class="quick-action-btn px-3 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-xs font-medium hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors duration-200">
+                        💼 View Projects
+                    </button>
+                    <button class="quick-action-btn px-3 py-2 bg-secondary-100 dark:bg-secondary-900/30 text-secondary-700 dark:text-secondary-300 rounded-full text-xs font-medium hover:bg-secondary-200 dark:hover:bg-secondary-900/50 transition-colors duration-200">
+                        🛠️ Technical Skills
+                    </button>
+                    <button class="quick-action-btn px-3 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-xs font-medium hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors duration-200">
+                        📧 Contact Info
+                    </button>
+                    <button class="quick-action-btn px-3 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-xs font-medium hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors duration-200">
+                        📄 Download CV
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+                <div class="flex items-center space-x-3">
+                    <div class="flex-1 relative">
+                        <input
+                            type="text"
+                            id="chat-input"
+                            placeholder="Ask me about Yasiru's work..."
+                            class="w-full px-4 py-3 pr-12 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm text-gray-700 dark:text-gray-300 placeholder-gray-500 dark:placeholder-gray-400"
+                        >
+                        <div class="absolute right-3 top-1/2 transform -translate-y-1/2">
+                            <div id="chat-typing" class="hidden">
+                                <div class="flex space-x-1">
+                                    <div class="w-2 h-2 bg-primary-500 rounded-full animate-bounce"></div>
+                                    <div class="w-2 h-2 bg-primary-500 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+                                    <div class="w-2 h-2 bg-primary-500 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        id="send-message"
+                        class="w-10 h-10 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-xl hover:from-secondary-600 hover:to-purple-600 transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <i class="fas fa-paper-plane text-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Welcome Tooltip -->
+        <div id="chat-tooltip" class="absolute bottom-20 right-0 transform translate-x-4">
+            <div class="bg-gray-900 dark:bg-gray-700 text-white text-sm px-4 py-2 rounded-lg shadow-lg whitespace-nowrap animate-bounce">
+                💬 Need help? Chat with YL Assistant!
+                <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900 dark:border-t-gray-700"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Enhanced Navigation -->
     <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 opacity-0 invisible">
         <!-- Progress Bar -->

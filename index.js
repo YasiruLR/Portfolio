@@ -490,6 +490,227 @@ document.addEventListener('DOMContentLoaded', function() {
     
     addLoadingFluctuations();
     
+    // ===== AI CHATBOT FUNCTIONALITY =====
+    
+    // Chatbot elements
+    const chatToggle = document.getElementById('chat-toggle');
+    const chatInterface = document.getElementById('chat-interface');
+    const chatInput = document.getElementById('chat-input');
+    const sendButton = document.getElementById('send-message');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatNotification = document.getElementById('chat-notification');
+    const chatTooltip = document.getElementById('chat-tooltip');
+    const chatTyping = document.getElementById('chat-typing');
+    const quickActionBtns = document.querySelectorAll('.quick-action-btn');
+    
+    let isChatOpen = false;
+    let isTyping = false;
+    
+    // Chatbot responses database
+    const chatResponses = {
+        greetings: [
+            "Hello! 👋 I'm here to help you learn about Yasiru's work and experience.",
+            "Hi there! 🌟 Feel free to ask me anything about Yasiru's projects or skills.",
+            "Welcome! 🚀 I'm YL Assistant. How can I help you explore Yasiru's portfolio today?"
+        ],
+        projects: [
+            "Yasiru has developed 10+ amazing projects! 🎯 His portfolio includes full-stack web applications, mobile apps, and AI-integrated solutions. Would you like me to highlight a specific project?",
+            "Great question! 💼 Yasiru specializes in modern web development with React, Node.js, and cutting-edge technologies. His projects range from e-commerce platforms to AI-powered applications. Check out the Projects section!",
+            "Yasiru's project portfolio is impressive! 🌟 He's built everything from student management systems to advanced web applications. Each project showcases his expertise in both frontend and backend development."
+        ],
+        skills: [
+            "Yasiru is proficient in 15+ technologies! 🛠️ His core skills include React, Node.js, Python, JavaScript, TypeScript, MongoDB, MySQL, and modern frameworks like Next.js and Express.js.",
+            "His technical expertise spans across: 💻 Frontend (React, Vue.js, Tailwind CSS), Backend (Node.js, Express, Python), Databases (MongoDB, MySQL), and emerging technologies like AI integration!",
+            "Yasiru's skill set is quite comprehensive! 🎯 He excels in full-stack development, UI/UX design, database management, and has experience with cloud platforms and AI technologies."
+        ],
+        contact: [
+            "You can reach Yasiru through multiple channels! 📧 Email: yasiru.lakshan@example.com | 💼 LinkedIn: linkedin.com/in/yasiru-lakshan-70b4b4355 | 🐙 GitHub: github.com/YasiruLR",
+            "Yasiru is available for collaborations and opportunities! 🤝 Feel free to connect via email or LinkedIn. You can also download his CV using the download button in the navigation.",
+            "Ready to connect with Yasiru? 🚀 You'll find all his contact information in the Contact section, or you can download his latest CV right from the navigation bar!"
+        ],
+        cv: [
+            "📄 You can download Yasiru's latest CV by clicking the download button in the navigation or visiting the Contact section. It contains detailed information about his education, experience, and projects!",
+            "His CV showcases his Second Class Upper Division degree from London Metropolitan University and 3+ years of development experience. 🎓 You can download it directly from the site!",
+            "Yasiru's CV highlights his journey from university graduate to experienced developer! 📈 It includes all his certifications, projects, and technical expertise. Download link is available in the navigation."
+        ],
+        experience: [
+            "Yasiru brings 3+ years of software development experience! 💼 He's worked on diverse projects ranging from academic systems to commercial applications, always focusing on innovative solutions.",
+            "His professional journey includes full-stack development, UI/UX design, and team collaboration. 🌟 Yasiru has successfully delivered projects for various clients and has a track record of quality work.",
+            "With his educational background and practical experience, Yasiru has developed a strong foundation in modern software development practices and emerging technologies! 🚀"
+        ],
+        default: [
+            "That's an interesting question! 🤔 I'm here to help you learn about Yasiru's work, projects, skills, and experience. What would you like to know more about?",
+            "I'd be happy to help! ✨ You can ask me about Yasiru's projects, technical skills, experience, or how to get in touch with him. What interests you most?",
+            "Great question! 🎯 I'm designed to share information about Yasiru's portfolio, expertise, and professional background. Feel free to ask about any specific aspect!"
+        ]
+    };
+    
+    // Hide tooltip after 5 seconds
+    setTimeout(() => {
+        if (chatTooltip) {
+            chatTooltip.style.opacity = '0';
+            chatTooltip.style.transform = 'translateX(4px) scale(0.9)';
+        }
+    }, 5000);
+    
+    // Toggle chat interface
+    chatToggle.addEventListener('click', function() {
+        isChatOpen = !isChatOpen;
+        
+        if (isChatOpen) {
+            chatInterface.classList.add('chat-open');
+            chatToggle.classList.add('chat-button-active');
+            chatNotification.style.display = 'none';
+            if (chatTooltip) chatTooltip.style.display = 'none';
+            setTimeout(() => chatInput.focus(), 300);
+        } else {
+            chatInterface.classList.remove('chat-open');
+            chatToggle.classList.remove('chat-button-active');
+        }
+    });
+    
+    // Send message function
+    function sendMessage(message) {
+        if (!message.trim() || isTyping) return;
+        
+        // Add user message
+        addMessage(message, 'user');
+        chatInput.value = '';
+        
+        // Show typing indicator
+        showTyping();
+        
+        // Simulate AI response delay
+        setTimeout(() => {
+            hideTyping();
+            const response = generateResponse(message);
+            addMessage(response, 'bot');
+        }, 1500 + Math.random() * 1000);
+    }
+    
+    // Add message to chat
+    function addMessage(message, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `flex items-start space-x-3 chat-message ${sender}-message`;
+        
+        if (sender === 'user') {
+            messageDiv.innerHTML = `
+                <div class="flex-1 flex justify-end">
+                    <div class="message-bubble p-3 shadow-sm max-w-xs">
+                        <p class="text-sm">${message}</p>
+                    </div>
+                </div>
+                <div class="w-8 h-8 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-user text-white text-xs"></i>
+                </div>
+            `;
+        } else {
+            messageDiv.innerHTML = `
+                <div class="w-8 h-8 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-robot text-white text-xs"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="message-bubble p-3 shadow-sm">
+                        <p class="text-sm">${message}</p>
+                    </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Just now</p>
+                </div>
+            `;
+        }
+        
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Generate AI response
+    function generateResponse(message) {
+        const lowerMessage = message.toLowerCase();
+        
+        if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+            return getRandomResponse('greetings');
+        }
+        if (lowerMessage.includes('project') || lowerMessage.includes('work') || lowerMessage.includes('portfolio')) {
+            return getRandomResponse('projects');
+        }
+        if (lowerMessage.includes('skill') || lowerMessage.includes('technology') || lowerMessage.includes('tech') || lowerMessage.includes('programming')) {
+            return getRandomResponse('skills');
+        }
+        if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('reach') || lowerMessage.includes('connect')) {
+            return getRandomResponse('contact');
+        }
+        if (lowerMessage.includes('cv') || lowerMessage.includes('resume') || lowerMessage.includes('download')) {
+            return getRandomResponse('cv');
+        }
+        if (lowerMessage.includes('experience') || lowerMessage.includes('background') || lowerMessage.includes('career')) {
+            return getRandomResponse('experience');
+        }
+        
+        return getRandomResponse('default');
+    }
+    
+    // Get random response from category
+    function getRandomResponse(category) {
+        const responses = chatResponses[category] || chatResponses.default;
+        return responses[Math.floor(Math.random() * responses.length)];
+    }
+    
+    // Show typing indicator
+    function showTyping() {
+        isTyping = true;
+        chatTyping.classList.remove('hidden');
+    }
+    
+    // Hide typing indicator
+    function hideTyping() {
+        isTyping = false;
+        chatTyping.classList.add('hidden');
+    }
+    
+    // Event listeners
+    sendButton.addEventListener('click', () => {
+        sendMessage(chatInput.value);
+    });
+    
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage(chatInput.value);
+        }
+    });
+    
+    // Quick action buttons
+    quickActionBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const text = e.target.textContent.trim();
+            let message = '';
+            
+            if (text.includes('Projects')) {
+                message = 'Tell me about Yasiru\'s projects';
+            } else if (text.includes('Skills')) {
+                message = 'What are Yasiru\'s technical skills?';
+            } else if (text.includes('Contact')) {
+                message = 'How can I contact Yasiru?';
+            } else if (text.includes('CV')) {
+                message = 'Can I download Yasiru\'s CV?';
+            }
+            
+            if (message) {
+                chatInput.value = message;
+                sendMessage(message);
+            }
+        });
+    });
+    
+    // Close chat when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!chatToggle.contains(e.target) && !chatInterface.contains(e.target) && isChatOpen) {
+            // Optionally auto-close chat when clicking outside
+            // Uncomment the lines below if you want this behavior
+            // isChatOpen = false;
+            // chatInterface.classList.remove('chat-open');
+            // chatToggle.classList.remove('chat-button-active');
+        }
+    });
+    
     // Rotating Text Animation for Home Section
     const rotatingTextElement = document.getElementById('rotating-text');
     if (rotatingTextElement) {
