@@ -257,44 +257,237 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
     
-    // Enhanced loading screen with steps
+    // Ultra Enhanced Loading Screen System
     const loadingSteps = [
-        { id: 'loading-step-1', text: '🎨 Preparing interface...', duration: 800 },
-        { id: 'loading-step-2', text: '📱 Loading projects...', duration: 1000 },
-        { id: 'loading-step-3', text: '✨ Almost ready...', duration: 600 }
+        { id: 'loading-step-1', text: '🎨 Crafting visual experience...', duration: 1200, progress: 25 },
+        { id: 'loading-step-2', text: '📱 Loading interactive elements...', duration: 1500, progress: 60 },
+        { id: 'loading-step-3', text: '✨ Finalizing magic touch...', duration: 1000, progress: 85 },
+        { id: 'loading-step-4', text: '🚀 Ready to explore!', duration: 800, progress: 100 }
     ];
 
     let currentStep = 0;
+    let loadingProgress = 0;
+    let startTime = Date.now();
+    let assetsLoaded = 0;
+    let componentsInitialized = 0;
     
+    // Advanced loading status messages
+    const statusMessages = [
+        "Initializing portfolio experience...",
+        "Loading creative components...",
+        "Preparing interactive elements...",
+        "Optimizing performance...",
+        "Almost ready for exploration...",
+        "Welcome to the experience!"
+    ];
+    
+    // Get DOM elements
+    const loadingPercentage = document.getElementById('loading-percentage');
+    const loadingProgressBar = document.getElementById('loading-progress-bar');
+    const loadingStatus = document.getElementById('loading-status');
+    const assetsLoadedElement = document.getElementById('assets-loaded');
+    const componentsInitializedElement = document.getElementById('components-initialized');
+    const timeElapsedElement = document.getElementById('time-elapsed');
+    
+    // Smooth progress animation
+    function updateProgress(targetProgress) {
+        const currentProgress = loadingProgress;
+        const progressDiff = targetProgress - currentProgress;
+        const steps = 30; // Number of animation frames
+        const stepSize = progressDiff / steps;
+        let step = 0;
+        
+        const progressInterval = setInterval(() => {
+            step++;
+            loadingProgress = Math.min(currentProgress + (stepSize * step), targetProgress);
+            
+            // Update percentage display
+            if (loadingPercentage) {
+                loadingPercentage.textContent = Math.round(loadingProgress) + '%';
+            }
+            
+            // Update progress bar
+            if (loadingProgressBar) {
+                loadingProgressBar.style.width = loadingProgress + '%';
+            }
+            
+            // Update statistics
+            updateLoadingStats();
+            
+            if (step >= steps || loadingProgress >= targetProgress) {
+                clearInterval(progressInterval);
+                loadingProgress = targetProgress;
+            }
+        }, 20);
+    }
+    
+    // Update loading statistics
+    function updateLoadingStats() {
+        const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(1);
+        
+        if (assetsLoadedElement) {
+            assetsLoadedElement.textContent = Math.floor(loadingProgress / 10);
+        }
+        
+        if (componentsInitializedElement) {
+            componentsInitializedElement.textContent = Math.floor(loadingProgress / 8);
+        }
+        
+        if (timeElapsedElement) {
+            timeElapsedElement.textContent = elapsedTime + 's';
+        }
+        
+        // Simulate realistic asset loading
+        if (loadingProgress > 20) assetsLoaded = Math.min(assetsLoaded + 1, 12);
+        if (loadingProgress > 40) componentsInitialized = Math.min(componentsInitialized + 1, 8);
+    }
+    
+    // Enhanced step transition with smooth animations
     function showNextStep() {
+        // Hide previous step
         if (currentStep > 0) {
-            document.getElementById(loadingSteps[currentStep - 1].id).classList.remove('opacity-100');
-            document.getElementById(loadingSteps[currentStep - 1].id).classList.add('opacity-0');
+            const prevStep = document.getElementById(loadingSteps[currentStep - 1].id);
+            if (prevStep) {
+                prevStep.classList.remove('opacity-100', 'translate-y-0');
+                prevStep.classList.add('opacity-0', '-translate-y-4');
+                
+                // Mark previous step indicator as complete
+                const prevIndicator = prevStep.querySelector('.loading-step-indicator');
+                if (prevIndicator) {
+                    prevIndicator.classList.add('complete');
+                }
+            }
         }
         
         if (currentStep < loadingSteps.length) {
-            document.getElementById(loadingSteps[currentStep].id).classList.remove('opacity-0');
-            document.getElementById(loadingSteps[currentStep].id).classList.add('opacity-100');
+            const currentStepData = loadingSteps[currentStep];
+            const currentStepElement = document.getElementById(currentStepData.id);
             
+            // Show current step with animation
+            if (currentStepElement) {
+                setTimeout(() => {
+                    currentStepElement.classList.remove('opacity-0', 'translate-y-4');
+                    currentStepElement.classList.add('opacity-100', 'translate-y-0');
+                }, 200);
+                
+                // Update progress
+                updateProgress(currentStepData.progress);
+                
+                // Update status message
+                if (loadingStatus && statusMessages[currentStep]) {
+                    setTimeout(() => {
+                        loadingStatus.textContent = statusMessages[currentStep];
+                    }, 300);
+                }
+            }
+            
+            // Schedule next step
             setTimeout(() => {
                 currentStep++;
                 showNextStep();
-            }, loadingSteps[currentStep].duration);
+            }, currentStepData.duration);
         } else {
-            // All steps complete, hide loading screen
-            setTimeout(() => {
-                document.getElementById('loading-screen').classList.add('opacity-0');
-                setTimeout(() => {
-                    document.getElementById('loading-screen').classList.add('hidden');
-                }, 500);
-            }, 400);
+            // All steps complete - final animations
+            completeLoading();
         }
     }
     
-    // Start the loading sequence
+    // Complete loading with celebration effects
+    function completeLoading() {
+        setTimeout(() => {
+            // Final status update
+            if (loadingStatus) {
+                loadingStatus.textContent = "Welcome to my portfolio!";
+            }
+            
+            // Ensure 100% progress
+            updateProgress(100);
+            
+            // Add completion effects
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                // Add fade-out class for smooth transition
+                setTimeout(() => {
+                    loadingScreen.style.transform = 'scale(1.05)';
+                    loadingScreen.style.opacity = '0';
+                    loadingScreen.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                    
+                    // Final cleanup
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                        document.body.classList.remove('overflow-hidden');
+                        
+                        // Trigger entrance animations for main content
+                        triggerMainContentAnimations();
+                    }, 800);
+                }, 600);
+            }
+        }, 500);
+    }
+    
+    // Trigger main content entrance animations
+    function triggerMainContentAnimations() {
+        const homeSection = document.getElementById('home');
+        if (homeSection) {
+            homeSection.classList.add('animate-fade-in');
+        }
+        
+        // Stagger animation for navigation
+        const navbar = document.getElementById('navbar');
+        if (navbar) {
+            setTimeout(() => {
+                navbar.classList.add('animate-slide-down');
+            }, 200);
+        }
+    }
+    
+    // Preload critical resources
+    function preloadResources() {
+        const imagesToPreload = [
+            './assects/yas.png',
+            './assects/YasiruLogo.png',
+            './assects/home.png',
+            './assects/about2.png'
+        ];
+        
+        imagesToPreload.forEach((src, index) => {
+            const img = new Image();
+            img.onload = () => {
+                assetsLoaded++;
+                updateLoadingStats();
+            };
+            img.src = src;
+        });
+    }
+    
+    // Start the enhanced loading sequence
     setTimeout(() => {
-        showNextStep();
-    }, 500);
+        // Prevent body scroll during loading
+        document.body.classList.add('overflow-hidden');
+        
+        // Start preloading resources
+        preloadResources();
+        
+        // Begin step sequence
+        setTimeout(() => {
+            showNextStep();
+        }, 300);
+    }, 200);
+    
+    // Add some random loading fluctuations for realism
+    function addLoadingFluctuations() {
+        setInterval(() => {
+            if (loadingProgress < 100) {
+                // Small random variations in statistics
+                const variation = Math.random() * 2 - 1; // -1 to 1
+                if (Math.random() > 0.7) { // 30% chance
+                    updateLoadingStats();
+                }
+            }
+        }, 500);
+    }
+    
+    addLoadingFluctuations();
     
     // Rotating Text Animation for Home Section
     const rotatingTextElement = document.getElementById('rotating-text');

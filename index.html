@@ -112,77 +112,204 @@
     
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-    <!-- Enhanced Loading screen -->
-    <div id="loading-screen" class="fixed inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500 overflow-hidden">
-        <!-- Background Animation -->
+    <!-- Ultra Enhanced Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-gradient-to-br from-white via-blue-50/50 to-purple-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/10 z-50 flex flex-col items-center justify-center transition-all duration-700 overflow-hidden">
+        <!-- Advanced Background Animation System -->
         <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute top-20 left-10 w-40 h-40 bg-primary-400/20 rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
-            <div class="absolute bottom-10 right-20 w-60 h-60 bg-secondary-400/20 rounded-full mix-blend-multiply filter blur-3xl animate-float-delay"></div>
-            <div class="absolute top-1/3 right-1/4 w-80 h-80 bg-purple-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
+            <!-- Primary Floating Orbs -->
+            <div class="absolute top-20 left-10 w-48 h-48 bg-gradient-to-r from-primary-400/30 to-cyan-400/25 rounded-full mix-blend-multiply filter blur-3xl animate-float opacity-70"></div>
+            <div class="absolute bottom-10 right-20 w-64 h-64 bg-gradient-to-r from-secondary-400/25 to-purple-400/30 rounded-full mix-blend-multiply filter blur-3xl animate-float-delay opacity-60"></div>
+            <div class="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-400/15 to-indigo-400/20 rounded-full mix-blend-multiply filter blur-3xl animate-float opacity-40"></div>
+            
+            <!-- Secondary Layer Orbs -->
+            <div class="absolute top-2/3 left-1/5 w-32 h-32 bg-gradient-to-r from-emerald-400/20 to-teal-400/25 rounded-full mix-blend-multiply filter blur-2xl animate-float opacity-50" style="animation-delay: 2s; animation-duration: 8s;"></div>
+            <div class="absolute bottom-1/3 right-1/5 w-40 h-40 bg-gradient-to-r from-pink-400/20 to-rose-400/25 rounded-full mix-blend-multiply filter blur-2xl animate-float-delay opacity-45" style="animation-delay: 3s;"></div>
+            
+            <!-- Animated Geometric Grid -->
+            <div class="absolute inset-0 opacity-20 dark:opacity-10">
+                <div class="absolute top-16 left-16 w-12 h-12 border-2 border-primary-300 rotate-45 animate-spin opacity-60" style="animation-duration: 25s;"></div>
+                <div class="absolute top-32 right-32 w-8 h-8 border-2 border-secondary-300 animate-ping opacity-50" style="animation-duration: 4s;"></div>
+                <div class="absolute bottom-32 left-32 w-16 h-16 border-2 border-purple-300 rotate-12 animate-bounce opacity-40" style="animation-duration: 3.5s;"></div>
+                <div class="absolute bottom-16 right-16 w-10 h-10 bg-gradient-to-r from-blue-200 to-cyan-200 rounded-full animate-pulse opacity-60" style="animation-duration: 2.5s;"></div>
+            </div>
         </div>
 
-        <!-- Main Loading Content -->
-        <div class="relative z-10 flex flex-col items-center">
-            <!-- Logo with Animation -->
-            <div class="relative mb-8">
-                <div class="absolute inset-0 bg-gradient-to-r from-primary-500/30 to-secondary-500/30 rounded-full blur-xl animate-pulse"></div>
-                <div class="relative w-24 h-24 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl shadow-2xl flex items-center justify-center transform animate-bounce">
-                    <span class="text-white font-bold text-2xl">YL</span>
-                </div>
-                <!-- Rotating Ring -->
-                <div class="absolute inset-0 w-24 h-24 border-4 border-transparent border-t-primary-500 border-r-secondary-500 rounded-full animate-spin"></div>
+        <!-- Particle System -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="loading-particles">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+                <div class="particle particle-4"></div>
+                <div class="particle particle-5"></div>
+                <div class="particle particle-6"></div>
             </div>
+        </div>
 
-            <!-- Enhanced Loading Spinner -->
-            <div class="relative mb-6">
-                <!-- Multiple Spinning Rings -->
-                <div class="w-20 h-20 relative">
-                    <div class="absolute inset-0 border-4 border-gray-200 dark:border-gray-700 rounded-full"></div>
-                    <div class="absolute inset-0 border-4 border-transparent border-t-primary-500 rounded-full animate-spin"></div>
-                    <div class="absolute inset-2 border-3 border-transparent border-t-secondary-500 rounded-full animate-spin" style="animation-direction: reverse; animation-duration: 1.5s;"></div>
-                    <div class="absolute inset-4 border-2 border-transparent border-t-purple-500 rounded-full animate-spin" style="animation-duration: 0.8s;"></div>
+        <!-- Main Loading Content Container -->
+        <div class="relative z-10 flex flex-col items-center animate-fade-in-up">
+            <!-- Enhanced Logo Section with Multi-layer Animation -->
+            <div class="relative mb-10 group">
+                <!-- Outer Glow Ring -->
+                <div class="absolute -inset-8 bg-gradient-to-r from-primary-500/20 via-secondary-500/25 to-purple-500/20 rounded-full blur-2xl animate-pulse opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                
+                <!-- Middle Rotating Ring System -->
+                <div class="absolute -inset-4 w-32 h-32">
+                    <div class="absolute inset-0 border-2 border-transparent border-t-primary-400 border-r-primary-400/50 rounded-full animate-spin opacity-70" style="animation-duration: 3s;"></div>
+                    <div class="absolute inset-2 border-2 border-transparent border-b-secondary-400 border-l-secondary-400/50 rounded-full animate-spin opacity-60" style="animation-direction: reverse; animation-duration: 4s;"></div>
+                    <div class="absolute inset-4 border border-transparent border-t-purple-400 rounded-full animate-spin opacity-50" style="animation-duration: 2s;"></div>
                 </div>
                 
-                <!-- Pulsing Dots -->
-                <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
-                    <div class="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></div>
-                    <div class="w-2 h-2 bg-secondary-500 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
-                    <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+                <!-- Core Logo Container -->
+                <div class="relative w-24 h-24 bg-gradient-to-br from-primary-600 via-secondary-600 to-purple-600 rounded-3xl shadow-2xl flex items-center justify-center transform animate-gentle-bounce group-hover:scale-110 transition-all duration-500">
+                    <span class="text-white font-bold text-2xl animate-text-glow">YL</span>
+                    <!-- Inner shimmer effect -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-3xl animate-shimmer"></div>
+                </div>
+                
+                <!-- Floating Achievement Indicators -->
+                <div class="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center animate-bounce shadow-lg" style="animation-delay: 0.5s;">
+                    <i class="fas fa-check text-white text-xs"></i>
+                </div>
+                <div class="absolute -bottom-2 -left-2 w-6 h-6 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center animate-bounce shadow-lg" style="animation-delay: 1s;">
+                    <i class="fas fa-star text-white text-xs"></i>
                 </div>
             </div>
 
-            <!-- Enhanced Text with Animation -->
-            <div class="text-center">
-                <h3 class="text-2xl font-bold mb-2">
-                    <span class="gradient-text bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+            <!-- Ultra Enhanced Loading Spinner System -->
+            <div class="relative mb-8 group">
+                <div class="w-24 h-24 relative">
+                    <!-- Base Ring -->
+                    <div class="absolute inset-0 border-4 border-gray-200/50 dark:border-gray-700/50 rounded-full shadow-inner"></div>
+                    
+                    <!-- Primary Spinner -->
+                    <div class="absolute inset-0 border-4 border-transparent border-t-primary-500 border-r-primary-500/70 rounded-full animate-spin shadow-lg"></div>
+                    
+                    <!-- Secondary Spinner -->
+                    <div class="absolute inset-2 border-3 border-transparent border-b-secondary-500 border-l-secondary-500/70 rounded-full animate-spin shadow-md" style="animation-direction: reverse; animation-duration: 1.8s;"></div>
+                    
+                    <!-- Tertiary Spinner -->
+                    <div class="absolute inset-4 border-2 border-transparent border-t-purple-500 border-r-purple-500/70 rounded-full animate-spin shadow-sm" style="animation-duration: 1.2s;"></div>
+                    
+                    <!-- Inner Pulse Core -->
+                    <div class="absolute inset-6 bg-gradient-to-r from-primary-500/30 to-secondary-500/30 rounded-full animate-pulse shadow-inner"></div>
+                </div>
+                
+                <!-- Advanced Progress Dots with Wave Animation -->
+                <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    <div class="w-3 h-3 bg-primary-500 rounded-full animate-loading-wave shadow-sm"></div>
+                    <div class="w-3 h-3 bg-secondary-500 rounded-full animate-loading-wave shadow-sm" style="animation-delay: 0.2s;"></div>
+                    <div class="w-3 h-3 bg-purple-500 rounded-full animate-loading-wave shadow-sm" style="animation-delay: 0.4s;"></div>
+                    <div class="w-3 h-3 bg-blue-500 rounded-full animate-loading-wave shadow-sm" style="animation-delay: 0.6s;"></div>
+                    <div class="w-3 h-3 bg-cyan-500 rounded-full animate-loading-wave shadow-sm" style="animation-delay: 0.8s;"></div>
+                </div>
+                
+                <!-- Percentage Display -->
+                <div id="loading-percentage" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-sm font-bold text-gray-600 dark:text-gray-300 animate-number-glow">0%</div>
+            </div>
+
+            <!-- Enhanced Text Section with Typewriter Effect -->
+            <div class="text-center max-w-md">
+                <h3 class="text-3xl font-bold mb-3">
+                    <span class="gradient-text bg-gradient-to-r from-primary-600 via-secondary-600 to-purple-600 bg-clip-text text-transparent animate-gradient-shift bg-size-200">
                         Yasiru Lakshan
                     </span>
                 </h3>
-                <p class="text-gray-600 dark:text-gray-400 text-lg mb-4 animate-pulse">Loading portfolio...</p>
                 
-                <!-- Progress Indicator -->
-                <div class="w-48 h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full animate-pulse"></div>
+                <!-- Dynamic Status Message -->
+                <p id="loading-status" class="text-gray-600 dark:text-gray-400 text-lg mb-6 animate-pulse font-medium">Initializing portfolio experience...</p>
+                
+                <!-- Advanced Progress Bar with Segments -->
+                <div class="w-64 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden shadow-inner mb-6">
+                    <div id="loading-progress-bar" class="h-full bg-gradient-to-r from-primary-500 via-secondary-500 to-purple-500 rounded-full transition-all duration-500 ease-out relative overflow-hidden">
+                        <!-- Shimmer Effect on Progress Bar -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer-fast"></div>
+                    </div>
                 </div>
                 
-                <!-- Loading Steps -->
-                <div class="mt-6 text-sm text-gray-500 dark:text-gray-500 space-y-1">
-                    <div id="loading-step-1" class="opacity-100 transition-opacity duration-500">🎨 Preparing interface...</div>
-                    <div id="loading-step-2" class="opacity-0 transition-opacity duration-500">📱 Loading projects...</div>
-                    <div id="loading-step-3" class="opacity-0 transition-opacity duration-500">✨ Almost ready...</div>
+                <!-- Enhanced Loading Steps with Icons and Animations -->
+                <div class="space-y-3 text-sm">
+                    <div id="loading-step-1" class="flex items-center justify-center space-x-3 opacity-100 transition-all duration-700 transform">
+                        <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center animate-spin-slow">
+                            <i class="fas fa-palette text-white text-xs"></i>
+                        </div>
+                        <span class="text-gray-600 dark:text-gray-400 font-medium">🎨 Crafting visual experience...</span>
+                        <div class="loading-step-indicator"></div>
+                    </div>
+                    
+                    <div id="loading-step-2" class="flex items-center justify-center space-x-3 opacity-0 transition-all duration-700 transform translate-y-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center animate-spin-slow">
+                            <i class="fas fa-code text-white text-xs"></i>
+                        </div>
+                        <span class="text-gray-600 dark:text-gray-400 font-medium">📱 Loading interactive elements...</span>
+                        <div class="loading-step-indicator"></div>
+                    </div>
+                    
+                    <div id="loading-step-3" class="flex items-center justify-center space-x-3 opacity-0 transition-all duration-700 transform translate-y-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center animate-spin-slow">
+                            <i class="fas fa-sparkles text-white text-xs"></i>
+                        </div>
+                        <span class="text-gray-600 dark:text-gray-400 font-medium">✨ Finalizing magic touch...</span>
+                        <div class="loading-step-indicator"></div>
+                    </div>
+                    
+                    <div id="loading-step-4" class="flex items-center justify-center space-x-3 opacity-0 transition-all duration-700 transform translate-y-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center animate-pulse">
+                            <i class="fas fa-check text-white text-xs"></i>
+                        </div>
+                        <span class="text-gray-600 dark:text-gray-400 font-medium">🚀 Ready to explore!</span>
+                        <div class="loading-step-indicator complete"></div>
+                    </div>
+                </div>
+                
+                <!-- Loading Statistics -->
+                <div class="mt-6 grid grid-cols-3 gap-4 text-xs text-gray-500 dark:text-gray-500">
+                    <div class="text-center">
+                        <div id="assets-loaded" class="font-bold text-primary-600 dark:text-primary-400">0</div>
+                        <div>Assets</div>
+                    </div>
+                    <div class="text-center">
+                        <div id="components-initialized" class="font-bold text-secondary-600 dark:text-secondary-400">0</div>
+                        <div>Components</div>
+                    </div>
+                    <div class="text-center">
+                        <div id="time-elapsed" class="font-bold text-purple-600 dark:text-purple-400">0.0s</div>
+                        <div>Time</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Floating Elements -->
-        <div class="absolute top-1/4 left-1/4 w-6 h-6 text-primary-500 animate-float opacity-60">
-            <i class="fas fa-code"></i>
+        <!-- Advanced Floating Tech Icons with Enhanced Animation -->
+        <div class="absolute inset-0 pointer-events-none">
+            <!-- Tech Stack Icons with Complex Animations -->
+            <div class="absolute top-1/5 left-1/6 text-2xl text-primary-500/50 animate-float-complex opacity-60" style="animation-delay: 0.5s;">
+                <i class="fab fa-react"></i>
+            </div>
+            <div class="absolute top-1/3 right-1/5 text-xl text-secondary-500/50 animate-float-complex opacity-55" style="animation-delay: 1.2s;">
+                <i class="fas fa-code"></i>
+            </div>
+            <div class="absolute bottom-1/4 left-1/4 text-lg text-purple-500/50 animate-float-complex opacity-50" style="animation-delay: 2s;">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="absolute top-3/4 right-1/3 text-xl text-blue-500/50 animate-float-complex opacity-55" style="animation-delay: 0.8s;">
+                <i class="fab fa-js-square"></i>
+            </div>
+            <div class="absolute bottom-1/3 right-1/6 text-lg text-green-500/50 animate-float-complex opacity-50" style="animation-delay: 1.5s;">
+                <i class="fab fa-node-js"></i>
+            </div>
+            <div class="absolute top-2/5 left-1/12 text-lg text-orange-500/50 animate-float-complex opacity-50" style="animation-delay: 2.3s;">
+                <i class="fab fa-html5"></i>
+            </div>
         </div>
-        <div class="absolute top-3/4 right-1/4 w-6 h-6 text-secondary-500 animate-float-delay opacity-60">
-            <i class="fas fa-palette"></i>
-        </div>
-        <div class="absolute bottom-1/4 left-1/3 w-6 h-6 text-purple-500 animate-float opacity-60" style="animation-delay: 1s;">
-            <i class="fas fa-laptop-code"></i>
+
+        <!-- Corner Decorative Elements -->
+        <div class="absolute top-8 right-8 w-32 h-32 border-t-2 border-r-2 border-primary-300/20 rounded-tr-3xl animate-pulse"></div>
+        <div class="absolute bottom-8 left-8 w-32 h-32 border-b-2 border-l-2 border-secondary-300/20 rounded-bl-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        
+        <!-- Loading Version Info -->
+        <div class="absolute bottom-4 right-4 text-xs text-gray-400 dark:text-gray-600 font-mono opacity-60">
+            v2.0.1 • Enhanced Experience
         </div>
     </div>
 
@@ -593,7 +720,6 @@
     <div class="absolute bottom-8 left-8 w-24 h-24 border-b-2 border-l-2 border-secondary-300/30 rounded-bl-2xl"></div>
 </section>
 
-
  <!-- About Section -->
 <section id="about" class="relative py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden section-hidden">
     <!-- Enhanced Decorative elements -->
@@ -895,12 +1021,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
     <!-- Projects Section -->
     <section id="projects" class="relative py-24 bg-gradient-to-br from-gray-50 via-gray-100 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden section-hidden">
         <!-- Enhanced Background Elements -->
@@ -2725,6 +2845,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
   <footer class="bg-gray-1200 text-white py-8">
     <div class="container mx-auto px-6">
         <div class="flex flex-col items-center">  <!-- Changed to column layout with centered items -->

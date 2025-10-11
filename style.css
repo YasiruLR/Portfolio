@@ -865,7 +865,9 @@ a {
   }
 }
 
-/* ===== Enhanced Loading Screen Animations ===== */
+/* ===== Ultra Enhanced Loading Screen Animations ===== */
+
+/* Core Loading Animations */
 @keyframes loadingPulse {
   0%, 100% { 
     opacity: 1;
@@ -898,6 +900,123 @@ a {
   }
 }
 
+/* Advanced Loading Animations */
+@keyframes gentle-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) rotate(-45deg);
+  }
+  100% {
+    transform: translateX(200%) rotate(-45deg);
+  }
+}
+
+@keyframes shimmer-fast {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(14, 165, 233, 0.4);
+  }
+}
+
+@keyframes loading-wave {
+  0%, 80%, 100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.7;
+  }
+  40% {
+    transform: scale(1.3) translateY(-8px);
+    opacity: 1;
+  }
+}
+
+@keyframes number-glow {
+  0%, 100% {
+    color: #6b7280;
+    text-shadow: none;
+  }
+  50% {
+    color: #0ea5e9;
+    text-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-complex {
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-15px) translateX(5px) rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-5px) rotate(180deg) scale(1.05);
+  }
+  75% {
+    transform: translateY(-20px) translateX(3px) rotate(270deg) scale(1.15);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(0.8);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-100px) translateX(50px) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
 @keyframes progressFlow {
   0% {
     transform: translateX(-100%);
@@ -918,12 +1037,139 @@ a {
 
 /* Enhanced Loading Screen Styles */
 #loading-screen {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background-attachment: fixed;
 }
 
 #loading-screen .animate-breathe {
   animation: breathe 3s ease-in-out infinite;
+}
+
+#loading-screen .animate-gentle-bounce {
+  animation: gentle-bounce 2.5s ease-in-out infinite;
+}
+
+#loading-screen .animate-text-glow {
+  animation: text-glow 2s ease-in-out infinite;
+}
+
+#loading-screen .animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+#loading-screen .animate-shimmer-fast {
+  animation: shimmer-fast 1.5s ease-in-out infinite;
+}
+
+#loading-screen .animate-loading-wave {
+  animation: loading-wave 1.5s ease-in-out infinite;
+}
+
+#loading-screen .animate-number-glow {
+  animation: number-glow 2s ease-in-out infinite;
+}
+
+#loading-screen .animate-gradient-shift {
+  animation: gradient-shift 3s ease infinite;
+  background-size: 200% 200%;
+}
+
+#loading-screen .animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+#loading-screen .animate-float-complex {
+  animation: float-complex 8s ease-in-out infinite;
+}
+
+#loading-screen .animate-fade-in-up {
+  animation: fade-in-up 1s ease-out forwards;
+}
+
+/* Particle System Styles */
+#loading-screen .loading-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#loading-screen .particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(45deg, #0ea5e9, #8b5cf6);
+  border-radius: 50%;
+  animation: particle-float 6s ease-in-out infinite;
+}
+
+#loading-screen .particle-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 8s;
+}
+
+#loading-screen .particle-2 {
+  top: 60%;
+  left: 80%;
+  animation-delay: 1s;
+  animation-duration: 7s;
+}
+
+#loading-screen .particle-3 {
+  top: 40%;
+  left: 60%;
+  animation-delay: 2s;
+  animation-duration: 9s;
+}
+
+#loading-screen .particle-4 {
+  top: 80%;
+  left: 20%;
+  animation-delay: 3s;
+  animation-duration: 6s;
+}
+
+#loading-screen .particle-5 {
+  top: 30%;
+  left: 90%;
+  animation-delay: 4s;
+  animation-duration: 8.5s;
+}
+
+#loading-screen .particle-6 {
+  top: 70%;
+  left: 40%;
+  animation-delay: 5s;
+  animation-duration: 7.5s;
+}
+
+/* Loading Step Indicators */
+#loading-screen .loading-step-indicator {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#loading-screen .loading-step-indicator.complete {
+  background: linear-gradient(45deg, #10b981, #059669);
+  border-color: #10b981;
+}
+
+#loading-screen .loading-step-indicator.complete::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 8px;
+  font-weight: bold;
 }
 
 #loading-screen .progress-bar::after {
@@ -945,14 +1191,36 @@ a {
   animation: loadingGlow 2s ease-in-out infinite alternate;
 }
 
+/* Tailwind Custom Classes for Loading */
+.bg-size-200 {
+  background-size: 200% 200%;
+}
+
 /* Dark mode adjustments for loading screen */
 .dark #loading-screen .loading-logo {
   box-shadow: 0 0 30px rgba(14, 165, 233, 0.4);
 }
 
 .dark #loading-screen {
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+}
+
+.dark #loading-screen .particle {
+  background: linear-gradient(45deg, #3b82f6, #a855f7);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Responsive adjustments for loading screen */
+@media (max-width: 640px) {
+  #loading-screen .particle {
+    width: 3px;
+    height: 3px;
+  }
+  
+  #loading-screen .animate-float-complex {
+    animation-duration: 6s;
+  }
 }
 
 /* Custom spinner styles */
