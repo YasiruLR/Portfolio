@@ -432,10 +432,11 @@ document.addEventListener('DOMContentLoaded', function() {
             homeSection.classList.add('animate-fade-in');
         }
         
-        // Stagger animation for navigation
+        // Show and animate navigation
         const navbar = document.getElementById('navbar');
         if (navbar) {
             setTimeout(() => {
+                navbar.classList.remove('opacity-0', 'invisible');
                 navbar.classList.add('animate-slide-down');
             }, 200);
         }
